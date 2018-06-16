@@ -8,6 +8,7 @@ const passport = require('passport');
 
 //load Input validation
 const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 //@route    GET api/users/test
 //@desc     Tests users route
@@ -21,7 +22,6 @@ const User = require("../../models/User");
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-
   //check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -64,14 +64,23 @@ router.post("/register", (req, res) => {
 //@access   Public
 
 router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+  //check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const email = req.body.email;
   const password = req.body.password;
 
+  //find user by email
   User.findOne({ email }).then(user => {
+    //check for user
     if (!user) {
+      errors.email = "Пользователь не найден";
       return res
         .status(400)
-        .json({ email: "Пользователь с таким email не найден" });
+        .json(errors);
     }
 
     // CHECK PASSWORD
@@ -96,7 +105,8 @@ router.post("/login", (req, res) => {
             });
           });
       } else {
-        return res.status(400).json({ password: "Неверный пароль" });
+        errors.password = "Неверный пароль"
+        return res.status(400).json(errors);
       }
     });
   });
