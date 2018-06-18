@@ -28,11 +28,67 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
         .then(profile => {
             if (!profile) {
                 errors.noprofile = "У этого пользователя нет профиля";
-                return res.status(400).json(errors)
+                return res.status(404).json(errors)
             }
             res.json(profile);
         })
-        .catch(err => res.status(400).json(err));
+        .catch(err => res.status(404).json(err));
+});
+
+//@route    GET api/profile/all
+//@desc     GET all profiles
+//@access   Public
+router.get('/all', (req, res) => {
+    const errors = {};
+    Profile.find()
+        .populate('user', ['name', 'avatar'])
+        .then(profiles => {
+            if (!profiles) {
+                errors.noprofile = "Нет профилей";
+                return res.status(404).json(errors);
+            }
+
+            res.json(profiles);
+        })
+        .catch(err =>
+            res.status(404).json({ profile: "Нет профилей" })
+        );
+});
+
+//@route    GET api/profile/handle/:handle
+//@desc     GET profile by handle
+//@access   Public
+router.get('/handle/:handle', (req, res) => {
+    const errors = {};
+    Profile.findOne({ handle: req.params.handle })
+        .populate('user', ['name', 'avatar'])
+        .then(profile => {
+            if (!profile) {
+                errors.noprofile = "Для этого пользователя нет профиля";
+                res.status(404).json(errors);
+            }
+
+            res.json(profile);
+        })
+        .catch(err => res.status(404).json(err));
+});
+
+//@route    GET api/profile/user/:user_id
+//@desc     GET profile by user ID
+//@access   Public
+router.get('/user/:user_id', (req, res) => {
+    const errors = {};
+    Profile.findOne({ user: req.params.user_id })
+        .populate('user', ['name', 'avatar'])
+        .then(profile => {
+            if (!profile) {
+                errors.noprofile = "Для этого пользователя нет профиля";
+                res.status(404).json(errors);
+            }
+
+            res.json(profile);
+        })
+        .catch(err => res.status(404).json({ profile: "Для этого пользователя нет профиля" }));
 });
 
 //@route    POST api/profile
