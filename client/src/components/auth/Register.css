@@ -1,0 +1,30 @@
+.register-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75rem;
+}
+
+.register-content {
+    text-align: center;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin: .5rem 0;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0 .5rem;
+}
+
+.register-title {
+    font-size: 2rem;
+    margin: 1rem;
+}
+.register-lead {
+    font-size: 1.2rem;
+}
