@@ -1,0 +1,64 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: yellow;
+    transition: color .2s ease-in;
+    -webkit-transition: color .2s ease-in;
+    -moz-transition: color .2s ease-in;
+    -ms-transition: color .2s ease-in;
+    -o-transition: color .2s ease-in;
+}
+
+.navbar-logo:hover {
+    color: #FFF59D;
+    transition: color .2s ease-out;
+    -webkit-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -ms-transition: color .2s ease-out;
+    -o-transition: color .2s ease-out;
+}
+
+.navbar-list:last-child {
+    margin-left: auto;
+    display: flex;
+}
+
+.navbar-list:nth-child(2) {
+    margin-left: 2rem;
+}
+
+.navbar-list__link {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color .2s ease-in;
+    -webkit-transition: color .2s ease-in;
+    -moz-transition: color .2s ease-in;
+    -ms-transition: color .2s ease-in;
+    -o-transition: color .2s ease-in;
+}
+
+.navbar-list__link:hover {
+    color: #CCFF90;
+    transition: color .2s ease-out;
+    -webkit-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -ms-transition: color .2s ease-out;
+    -o-transition: color .2s ease-out;
+}
+
+.navbar-list__link.sign-up {
+    margin-right: 1.5rem;
+}
+
+.navbar-list__link.selected {
+    color: #64DD17;
+    text-decoration: underline;
+}
