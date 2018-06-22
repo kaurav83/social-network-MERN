@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import purple from '@material-ui/core/colors/purple';
 
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {registerUser} from '../../actions/authActions';
 
 import classnames from 'classnames';
 
 import './Register.css';
 
-const styles = theme => ({
-  cssUnderline: {
-    '&:after': {
-      borderBottomColor: purple[500]
-    }
-  }
-});
-
 const theme = createMuiTheme({
   palette: {
-      primary: {
-          light: '#fff9c4',
-          main: '#ffeb3b',
-          dark: '#ffc107',
-          contrastText: '#000',
-      },
-      secondary: {
-          light: '#CCFF90',
-          main: '#76FF03',
-          dark: '#64DD17',
-          contrastText: '#000',
-      },
+    primary: {
+      light: '#fff9c4',
+      main: '#ffeb3b',
+      dark: '#ffc107',
+      contrastText: '#000',
+    },
+    secondary: {
+      light: '#CCFF90',
+      main: '#76FF03',
+      dark: '#64DD17',
+      contrastText: '#000',
+    },
   },
 });
 
@@ -65,17 +59,18 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
-    }
+    };
 
-    axios.post('/api/users/register', newUser)
-      .then(result => console.log(result.data))
-      .catch(err => this.setState({errors: err.response.data}))
+    // axios.post('/api/users/register', newUser)
+    //   .then(result => console.log(result.data))
+    //   .catch(err => this.setState({ errors: err.response.data }))
+
+    this.props.registerUser(newUser);
   }
 
   render() {
-    const {classes} = this.props;
-    const {errors} = this.state;
-    
+    const { errors } = this.state;
+    const {user} = this.props.auth;
     return (
       <section className="auth">
         <div className="auth-container">
@@ -94,9 +89,6 @@ class Register extends Component {
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
-                    classes={{
-                      underline: classes.cssUnderline
-                    }}
                   />
                   {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                 </div>
@@ -110,9 +102,6 @@ class Register extends Component {
                     name="email"
                     value={this.state.email}
                     onChange={this.onChange}
-                    classes={{
-                      underline: classes.cssUnderline
-                    }}
                   />
                   {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                 </div>
@@ -126,9 +115,6 @@ class Register extends Component {
                     name="password"
                     value={this.state.password}
                     onChange={this.onChange}
-                    classes={{
-                      underline: classes.cssUnderline
-                    }}
                   />
                   {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
@@ -142,20 +128,16 @@ class Register extends Component {
                     name="password2"
                     value={this.state.password2}
                     onChange={this.onChange}
-                    classes={{
-                      underline: classes.cssUnderline
-                    }}
-                    id="name-error"
                   />
                   {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
                 </div>
                 <MuiThemeProvider theme={theme}>
-                  <Button 
-                      variant="contained" 
-                      type="submit" 
-                      color="primary" 
-                      style={{width: "100%", margin: "2rem 0 0 0", borderRadius: "0"}}
-                    >Отправить
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    color="primary"
+                    style={{ width: "100%", margin: "2rem 0 0 0", borderRadius: "0" }}
+                  >Отправить
                   </Button>
                 </MuiThemeProvider>
               </form>
@@ -167,4 +149,15 @@ class Register extends Component {
   }
 }
 
-export default withStyles(styles)(Register);
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps, {registerUser})(Register);

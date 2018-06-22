@@ -47,3 +47,9 @@
 .form-control.is-invalid:before {
     border-bottom-color: tomato;
 }
+
+.invalid-feedback {
+    color: tomato;
+    font-size: .7rem;
+    margin-top: .2rem;
+}
