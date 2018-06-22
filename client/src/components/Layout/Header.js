@@ -68,7 +68,7 @@ class Header extends Component {
                   variant="text"
                   style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 >
-                  Войти
+                  Авторизоваться
                 </Button>
               </MuiThemeProvider>
             </li>

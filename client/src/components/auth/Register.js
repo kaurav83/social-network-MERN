@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import purple from '@material-ui/core/colors/purple';
+
+import axios from 'axios';
+
+import classnames from 'classnames';
+
 import './Register.css';
 
 const styles = theme => ({
@@ -60,80 +66,100 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     }
-    console.log(newUser)
+
+    axios.post('/api/users/register', newUser)
+      .then(result => console.log(result.data))
+      .catch(err => this.setState({errors: err.response.data}))
   }
 
   render() {
     const {classes} = this.props;
+    const {errors} = this.state;
+    
     return (
-      <section className="register">
-        <div className="register-container">
-          <div className="register-content">
-          <h1 className="register-title">Зарегистрироваться</h1>
-          <p className="register-lead">Создайте ваш аккаунт</p>
-          <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <Input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                name="name"
-                value={this.state.name}
-                onChange={this.onChange}
-                classes={{
-                  underline: classes.cssUnderline
-                }}
-              />
+      <section className="auth">
+        <div className="auth-container">
+          <div className="auth-content">
+            <div className="auth-inner">
+              <h1 className="auth-title">Зарегистрироваться</h1>
+              <p className="auth-lead">Создайте ваш аккаунт</p>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <Input
+                    type="text"
+                    className={classnames('form-control', {
+                      'is-invalid': errors.name
+                    })}
+                    placeholder="Имя"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    classes={{
+                      underline: classes.cssUnderline
+                    }}
+                  />
+                  {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
+                </div>
+                <div className="form-group">
+                  <Input
+                    type="email"
+                    className={classnames('form-control', {
+                      'is-invalid': errors.email
+                    })}
+                    placeholder="Email адрес"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    classes={{
+                      underline: classes.cssUnderline
+                    }}
+                  />
+                  {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                </div>
+                <div className="form-group">
+                  <Input
+                    type="password"
+                    className={classnames('form-control', {
+                      'is-invalid': errors.password
+                    })}
+                    placeholder="Пароль"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    classes={{
+                      underline: classes.cssUnderline
+                    }}
+                  />
+                  {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                </div>
+                <div className="form-group">
+                  <Input
+                    type="password"
+                    className={classnames('form-control', {
+                      'is-invalid': errors.password2
+                    })}
+                    placeholder="Подтвердите пароль"
+                    name="password2"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                    classes={{
+                      underline: classes.cssUnderline
+                    }}
+                    id="name-error"
+                  />
+                  {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
+                </div>
+                <MuiThemeProvider theme={theme}>
+                  <Button 
+                      variant="contained" 
+                      type="submit" 
+                      color="primary" 
+                      style={{width: "100%", margin: "2rem 0 0 0", borderRadius: "0"}}
+                    >Отправить
+                  </Button>
+                </MuiThemeProvider>
+              </form>
             </div>
-            <div className="form-group">
-              <Input
-                type="email"
-                className="form-control"
-                placeholder="Email address"
-                name="email"
-                value={this.state.email}
-                onChange={this.onChange}
-                classes={{
-                  underline: classes.cssUnderline
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <Input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChange}
-                classes={{
-                  underline: classes.cssUnderline
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <Input
-                type="password"
-                className="form-control"
-                placeholder="Confirm password"
-                name="password2"
-                value={this.state.password2}
-                onChange={this.onChange}
-                classes={{
-                  underline: classes.cssUnderline
-                }}
-              />
-            </div>
-            <MuiThemeProvider theme={theme}>
-              <Button 
-                  variant="contained" 
-                  type="submit" 
-                  color="primary" 
-                  style={{width: "100%", margin: ".5rem 0 0 0"}}
-                >Отправить
-              </Button>
-            </MuiThemeProvider>
-          </form>
           </div>
         </div>
       </section>

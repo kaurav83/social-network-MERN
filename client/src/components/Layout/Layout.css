@@ -29,7 +29,7 @@
     margin-top: 0;
 }
 
-.register {
+.auth {
     flex: 1 1 auto;
     order: 2;
     width: 100%;

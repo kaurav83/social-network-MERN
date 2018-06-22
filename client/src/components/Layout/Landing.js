@@ -52,7 +52,7 @@ class Landing extends Component {
                                 color="secondary"
                                 style={{ margin: "1rem .5rem" }}
                             >
-                                Войти
+                                Авторизоваться
                             </Button>
                         </MuiThemeProvider>
                     </div>
