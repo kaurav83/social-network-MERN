@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './Header.css';
@@ -38,41 +38,55 @@ class Header extends Component {
             <li className="navbar-list__item">
               <MuiThemeProvider theme={theme}>
                 <Button
-                  href="/profiles"
-                  className="navbar-list__link"
                   color="secondary"
+                  className="navbar-list__button"
                   variant="text"
                   style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 >
-                  Разработчики
+                  <NavLink to="/profiles"
+                        style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                        className="navbar-list__link"
+                        activeClassName="selected"
+                  >
+                    Разработчики
+                  </NavLink>
+                  
               </Button>
               </MuiThemeProvider>
             </li>
           </ul>
           <ul className="navbar-list">
-            <li className="navbar-list__item">
+            <li className="navbar-list__item  sign-up">
               <MuiThemeProvider theme={theme}>
                 <Button
-                  href="/register"
-                  className="navbar-list__link sign-up"
+                  className="navbar-list__button"
                   color="secondary"
                   variant="text"
-                  style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 >
-                  Зарегистрироваться
+                <NavLink to="/register"
+                        style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                        className="navbar-list__link"
+                        activeClassName="selected"
+                  >
+                    Зарегистрироваться
+                  </NavLink>
               </Button>
               </MuiThemeProvider>
             </li>
-            <li className="navbar-list__item">
+            <li className="navbar-list__item sign-in">
               <MuiThemeProvider theme={theme}>
                 <Button
-                  href="/login"
-                  className="navbar-list__link sign-in"
+                  className="navbar-list__button"
                   color="secondary"
                   variant="text"
-                  style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 >
-                  Авторизоваться
+                  <NavLink to="/login"
+                        style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                        className="navbar-list__link"
+                        activeClassName="selected"
+                  >
+                    Авторизоваться
+                  </NavLink>
                 </Button>
               </MuiThemeProvider>
             </li>

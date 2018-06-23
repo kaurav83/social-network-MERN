@@ -53,3 +53,9 @@
     font-size: .7rem;
     margin-top: .2rem;
 }
+
+.is-invalid .MuiInput-input-41::placeholder,
+.is-invalid .MuiInput-input-42::placeholder,
+.is-invalid .MuiInput-input-182::placeholder {
+  color: red;
+}

@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import purple from '@material-ui/core/colors/purple';
 
 import classnames from 'classnames';
 import axios from 'axios';
 
-const styles = theme => ({
-    cssUnderline: {
-      '&:after': {
-        borderBottomColor: purple[500]
-      }
-    }
-  });
-  
-  const theme = createMuiTheme({
+
+
+const theme = createMuiTheme({
     palette: {
         primary: {
             light: '#fff9c4',
@@ -31,8 +24,8 @@ const styles = theme => ({
             contrastText: '#000',
         },
     },
-  });
-  
+});
+
 class Login extends Component {
     constructor() {
         super();
@@ -55,76 +48,69 @@ class Login extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        
+
         const user = {
             email: this.state.email,
             password: this.state.password
         };
 
         axios.post('/api/users/login', user)
-        .then(result => console.log(result.data))
-        .catch(err => this.setState({errors: err.response.data}))
+            .then(result => console.log(result.data))
+            .catch(err => this.setState({ errors: err.response.data }))
     }
 
     render() {
-        const {classes} = this.props;
-        const {errors} = this.state;
+        const { errors } = this.state;
         return (
             <section className="auth">
                 <div className="auth-container">
                     <div className="auth-content">
                         <div className="auth-inner">
                             <h1 className="auth-title">Авторизуйтесь</h1>
-                                <p className="auth-lead">Войдите в ваш аккаунт</p>
-                                <form noValidate onSubmit={this.onSubmit}>
-                                    <div className="form-group">
-                                        <Input
-                                            type="email"
-                                            placeholder="Email адрес"
-                                            className={classnames('form-control', {
-                                                'is-invalid': errors.email
-                                            })}
-                                            name="email"
-                                            value={this.state.email}
-                                            onChange={this.onChange}
-                                            classes={{
-                                                underline: classes.cssUnderline
-                                            }}
-                                        />
-                                        {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                                    </div>
-                                    <div className="form-group">
-                                        <Input
-                                            type="password"
-                                            placeholder="Пароль"
-                                            className={classnames('form-control', {
-                                                'is-invalid': errors.password
-                                            })}
-                                            name="password"
-                                            value={this.state.password}
-                                            onChange={this.onChange}
-                                            classes={{
-                                            underline: classes.cssUnderline
-                                            }}
-                                        />
-                                        {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                                    </div>
-                                    <MuiThemeProvider theme={theme}>
-                                        <Button 
-                                            variant="contained" 
-                                            type="submit" 
-                                            color="secondary" 
-                                            style={{width: "100%", margin: "2rem 0 0 0", borderRadius: "0"}}
-                                            >Отправить
+                            <p className="auth-lead">Войдите в ваш аккаунт</p>
+                            <form noValidate onSubmit={this.onSubmit}>
+                                <div className="form-group">
+                                    <Input
+                                        type="email"
+                                        placeholder="Email адрес"
+                                        className={classnames('form-control', {
+                                            'is-invalid': errors.email
+                                        })}
+                                        name="email"
+                                        value={this.state.email}
+                                        onChange={this.onChange}
+                                    />
+                                    {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                                </div>
+                                <div className="form-group">
+                                    <Input
+                                        type="password"
+                                        placeholder="Пароль"
+                                        className={classnames('form-control', {
+                                            'is-invalid': errors.password
+                                        })}
+                                        name="password"
+                                        value={this.state.password}
+                                        onChange={this.onChange}
+                                    />
+                                    {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                                </div>
+                                <MuiThemeProvider theme={theme}>
+                                    <Button
+                                        variant="contained"
+                                        type="submit"
+                                        color="secondary"
+                                        style={{ width: "100%", margin: "2rem 0 0 0", borderRadius: "0" }}
+                                    >Отправить
                                         </Button>
-                                    </MuiThemeProvider>
-                                </form>
-                            </div>
+                                </MuiThemeProvider>
+                            </form>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
         )
     }
 }
 
-export default withStyles(styles)(Login);
+export default (Login);

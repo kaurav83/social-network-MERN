@@ -29,7 +29,8 @@
 }
 
 .navbar-logo-text {
-    /* display: inline-block; */
+    font-family: 'Cinzel Decorative', sans-serif;
+    font-weight: 600;
 }
 
 .navbar-logo:hover {
@@ -58,6 +59,8 @@
     -moz-transition: color .2s ease-in;
     -ms-transition: color .2s ease-in;
     -o-transition: color .2s ease-in;
+    display: block;
+    padding: .5rem 0;
 }
 
 .navbar-list__link:hover {
@@ -69,11 +72,20 @@
     -o-transition: color .2s ease-out;
 }
 
-.navbar-list__link.sign-up {
+.navbar-list__item.sign-up {
     margin-right: 1.5rem;
 }
 
 .navbar-list__link.selected {
-    color: #64DD17;
+    color: yellow;
     text-decoration: underline;
+}
+
+.navbar-list__button.MuiButton-textSecondary-4:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar-list__button.MuiButton-root-1 {
+    padding: 0;
+    min-height: 0;
 }

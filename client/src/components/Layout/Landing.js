@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './Landing.css';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
@@ -37,22 +38,24 @@ class Landing extends Component {
                         <MuiThemeProvider theme={theme}>
                             <Button
                                 variant="contained"
-                                href="/register"
                                 color="primary"
                                 style={{ margin: "1rem .5rem" }}
                             >
-                                Зарегистрироваться
+                                <Link to="/register">
+                                    Зарегистрироваться
+                                </Link>
                             </Button>
                         </MuiThemeProvider>
                         <MuiThemeProvider theme={theme}>
                             {/* <a href="#" className="button sign-in">Войти</a> */}
                             <Button
                                 variant="contained"
-                                href="/login"
                                 color="secondary"
                                 style={{ margin: "1rem .5rem" }}
                             >
-                                Авторизоваться
+                                <Link to="/login">
+                                    Авторизоваться
+                                </Link>
                             </Button>
                         </MuiThemeProvider>
                     </div>
