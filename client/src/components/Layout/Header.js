@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './Header.css';
+import logo from '../../img/SocialNetwordForDevelopers.png'
 
 const theme = createMuiTheme({
   palette: {
@@ -28,7 +29,10 @@ class Header extends Component {
       <section className="header">
         <nav className="navbar">
           <div className="nav-logo-container">
-            <Link to="/" className="navbar-logo">DevSocial</Link>
+            <Link to="/" className="navbar-logo">
+              <img src={logo} alt="logo" className="navbar-logo-image" />
+              <span className="navbar-logo-text">DevSocial</span>
+            </Link>
           </div>
           <ul className="navbar-list">
             <li className="navbar-list__item">

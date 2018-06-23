@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {registerUser} from '../../actions/authActions';
 
@@ -61,16 +61,18 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    // axios.post('/api/users/register', newUser)
-    //   .then(result => console.log(result.data))
-    //   .catch(err => this.setState({ errors: err.response.data }))
+    this.props.registerUser(newUser, this.props.history);
+  }
 
-    this.props.registerUser(newUser);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({errors: nextProps.errors});
+    }
   }
 
   render() {
     const { errors } = this.state;
-    const {user} = this.props.auth;
+    
     return (
       <section className="auth">
         <div className="auth-container">
@@ -151,13 +153,15 @@ class Register extends Component {
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
   };
 };
 
-export default connect(mapStateToProps, {registerUser})(Register);
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));

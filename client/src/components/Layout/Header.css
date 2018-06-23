@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     max-width: 75rem;
     margin: 0 auto;
 }
@@ -9,16 +9,31 @@
 .navbar-logo {
     font-size: 1.5rem;
     font-weight: 500;
-    color: yellow;
+    color: #fff;
     transition: color .2s ease-in;
     -webkit-transition: color .2s ease-in;
     -moz-transition: color .2s ease-in;
     -ms-transition: color .2s ease-in;
     -o-transition: color .2s ease-in;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* background: url('../../img/SocialNetwordForDevelopers.png') no-repeat;
+    background-size: 40%;
+    background-position: 50% 100%; */
+}
+
+.navbar-logo-image {
+    max-width: 4rem;
+    /* display: inline-block; */
+}
+
+.navbar-logo-text {
+    /* display: inline-block; */
 }
 
 .navbar-logo:hover {
-    color: #FFF59D;
+    /* color: #FFF59D; */
     transition: color .2s ease-out;
     -webkit-transition: color .2s ease-out;
     -moz-transition: color .2s ease-out;
