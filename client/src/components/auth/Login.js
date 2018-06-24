@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -39,6 +42,18 @@ class Login extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
+
     onChange(e) {
         e.preventDefault();
         this.setState({
@@ -49,14 +64,12 @@ class Login extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const user = {
+        const userData = {
             email: this.state.email,
             password: this.state.password
         };
 
-        axios.post('/api/users/login', user)
-            .then(result => console.log(result.data))
-            .catch(err => this.setState({ errors: err.response.data }))
+        this.props.loginUser(userData);
     }
 
     render() {
@@ -102,7 +115,7 @@ class Login extends Component {
                                         color="secondary"
                                         style={{ width: "100%", margin: "2rem 0 0 0", borderRadius: "0" }}
                                     >Отправить
-                                        </Button>
+                                    </Button>
                                 </MuiThemeProvider>
                             </form>
                         </div>
@@ -113,4 +126,17 @@ class Login extends Component {
     }
 }
 
-export default (Login);
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => {
+    return {
+        auth: state.auth,
+        errors: state.errors
+    };
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);
