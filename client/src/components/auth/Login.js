@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import { loginUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/text_field_group';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -86,32 +88,22 @@ class Login extends Component {
                             <h1 className="auth-title">Авторизуйтесь</h1>
                             <p className="auth-lead">Войдите в ваш аккаунт</p>
                             <form noValidate onSubmit={this.onSubmit}>
-                                <div className="form-group">
-                                    <Input
-                                        type="email"
-                                        placeholder="Email адрес"
-                                        className={classnames('form-control', {
-                                            'is-invalid': errors.email
-                                        })}
-                                        name="email"
-                                        value={this.state.email}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                                </div>
-                                <div className="form-group">
-                                    <Input
-                                        type="password"
-                                        placeholder="Пароль"
-                                        className={classnames('form-control', {
-                                            'is-invalid': errors.password
-                                        })}
-                                        name="password"
-                                        value={this.state.password}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                                </div>
+                                <TextFieldGroup
+                                    placeholder="Email адрес"
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    error={errors.email}
+                                />
+                                <TextFieldGroup
+                                    placeholder="Пароль"
+                                    name="password"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                    error={errors.password}
+                                />
                                 <MuiThemeProvider theme={theme}>
                                     <Button
                                         variant="contained"
