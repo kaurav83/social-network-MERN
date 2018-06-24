@@ -8,9 +8,6 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
 import classnames from 'classnames';
-import axios from 'axios';
-
-
 
 const theme = createMuiTheme({
     palette: {
@@ -54,6 +51,12 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
     onChange(e) {
         e.preventDefault();
         this.setState({
@@ -74,6 +77,7 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
+        console.log(this.props)
         return (
             <section className="auth">
                 <div className="auth-container">

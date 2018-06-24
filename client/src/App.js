@@ -5,7 +5,7 @@ import store from './store';
 
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import {setCurrentUser} from './actions/authActions';
+import {setCurrentUser, logoutUser} from './actions/authActions';
 
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
@@ -24,6 +24,17 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken);
   // устанавливаем пользователя и аутентификацию (isAuthenticated)
   store.dispatch(setCurrentUser(decoded));
+
+  // проверка на "срок годности" токена
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    // logout пользователя 
+    store.dispatch(logoutUser());
+    // TODO: Очистка текущего профиля
+    
+    // Перенаправление на login
+    window.location.href = '/login';
+  }
 }
 
 class App extends Component {

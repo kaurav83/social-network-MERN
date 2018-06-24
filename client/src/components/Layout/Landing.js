@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import './Landing.css';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
@@ -23,6 +26,12 @@ const theme = createMuiTheme({
 
 
 class Landing extends Component {
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
     render() {
         return (
             <section className="landing">
@@ -67,4 +76,14 @@ class Landing extends Component {
     }
 }
 
-export default Landing;
+Landing.propTypes = {
+    auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    };
+};
+
+export default connect(mapStateToProps)(Landing);

@@ -46,3 +46,12 @@ export const setCurrentUser = (decoded) => {
     };
 };
 
+// logout пользователя
+export const logoutUser = () => dispatch => {
+    // удаление токена из localStorage
+    localStorage.removeItem('jwtToken');
+    // удаление заголовка аунтификации (auth) для будущих запросов
+    setAuthToken(false); // если в ф-и setAuthToken отработает else условие, где происходит удаление 'Authorization'
+    // установка текущего пользователя в пустой объект {}, который установит isAuthenticated в false
+    dispatch(setCurrentUser({}));
+}
