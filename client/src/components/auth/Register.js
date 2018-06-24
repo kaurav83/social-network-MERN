@@ -13,6 +13,8 @@ import classnames from 'classnames';
 
 import './Register.css';
 
+import TextFieldGroup from '../common/text_field_group';
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -87,58 +89,39 @@ class Register extends Component {
               <h1 className="auth-title">Зарегистрироваться</h1>
               <p className="auth-lead">Создайте ваш аккаунт</p>
               <form noValidate onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <Input
-                    type="text"
-                    className={classnames('form-control', {
-                      'is-invalid': errors.name
-                    })}
-                    placeholder="Имя"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.onChange}
-                  />
-                  {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
-                </div>
-                <div className="form-group">
-                  <Input
-                    type="email"
-                    className={classnames('form-control', {
-                      'is-invalid': errors.email
-                    })}
-                    placeholder="Email адрес"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                  />
-                  {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                </div>
-                <div className="form-group">
-                  <Input
-                    type="password"
-                    className={classnames('form-control', {
-                      'is-invalid': errors.password
-                    })}
-                    placeholder="Пароль"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                  />
-                  {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                </div>
-                <div className="form-group">
-                  <Input
-                    type="password"
-                    className={classnames('form-control', {
-                      'is-invalid': errors.password2
-                    })}
-                    placeholder="Подтвердите пароль"
-                    name="password2"
-                    value={this.state.password2}
-                    onChange={this.onChange}
-                  />
-                  {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
-                </div>
+                <TextFieldGroup
+                  placeholder="Имя"
+                  name="name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                />
+                <TextFieldGroup
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                  error={errors.email}
+                  info="Этот сайт использует Gravatar, поэтому, если вам нужно изображения профиля, используйте email Gravatar"
+                />
+                <TextFieldGroup
+                  placeholder="Пароль"
+                  name="password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                  error={errors.password}
+                />
+                <TextFieldGroup
+                  placeholder="Подтвердите пароль"
+                  name="password2"
+                  type="password"
+                  value={this.state.password2}
+                  onChange={this.onChange}
+                  error={errors.password2}
+                />
                 <MuiThemeProvider theme={theme}>
                   <Button
                     variant="contained"
