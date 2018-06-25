@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
+import { clearCurrentProfile } from '../../actions/profileActions';
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -31,6 +32,7 @@ class Header extends Component {
   onLogoutClick(e) {
     e.preventDefault();
 
+    this.props.clearCurrentProfile();
     this.props.logoutUser();
   }
 
@@ -45,7 +47,7 @@ class Header extends Component {
               color="secondary"
               variant="text"
             >
-              <a href="#"
+              <a href=""
                 style={{ textTransform: "capitalize", fontSize: "1.2rem", display: 'flex', alignItems: 'center' }}
                 className="navbar-list__link"
                 // activeClassName="selected"
@@ -155,4 +157,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { logoutUser })(Header);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(Header);

@@ -6,10 +6,7 @@ import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/text_field_group';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-
-import classnames from 'classnames';
 
 const theme = createMuiTheme({
     palette: {

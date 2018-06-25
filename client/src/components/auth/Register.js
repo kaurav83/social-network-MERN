@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
-
-import classnames from 'classnames';
 
 import './Register.css';
 
