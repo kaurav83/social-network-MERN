@@ -76,7 +76,7 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
-        console.log(this.props)
+        
         return (
             <section className="auth">
                 <div className="auth-container">
