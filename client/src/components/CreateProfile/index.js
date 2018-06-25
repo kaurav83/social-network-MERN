@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/text_field_group';
+import InputGroup from '../common/input_group';
+import SelectListGroup from '../common/select_list_group';
+import TextAreaFieldGroup from '../common/text_area_field_group';
 
 class CreateProfile extends Component {
     constructor(props) {
@@ -56,4 +59,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(null)(CreateProfile);
+export default connect(mapStateToProps)(CreateProfile);
