@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/text_field_group';
 import InputGroup from '../common/input_group';
@@ -7,6 +8,8 @@ import SelectListGroup from '../common/select_list_group';
 import TextAreaFieldGroup from '../common/text_area_field_group';
 
 import Button from '@material-ui/core/Button';
+
+import {createProfile} from '../../actions/profileActions';
 
 import './CreateProfile.css';
 
@@ -38,6 +41,12 @@ class CreateProfile extends Component {
         this.toggleSocialNetworksButton = this.toggleSocialNetworksButton.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({errors: nextProps.errors});
+        }
+    }
+
     onChange(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -47,7 +56,24 @@ class CreateProfile extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('submit');
+        const profileData = {
+            handle: this.state.handle,
+            company: this.state.company,
+            website: this.state.website,
+            location: this.state.location,
+            status: this.state.status,
+            skills: this.state.skills,
+            githubusername: this.state.githubusername,
+            bio: this.state.bio,
+            twitter: this.state.twitter,
+            facebook: this.state.facebook,
+            linkedin: this.state.linkedin,
+            youtube: this.state.youtube,
+            instagram: this.state.instagram,
+            vk: this.state.vk,
+        };
+
+        this.props.createProfile(profileData, this.props.history);
     }
 
     toggleSocialNetworksButton() {
@@ -285,4 +311,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
