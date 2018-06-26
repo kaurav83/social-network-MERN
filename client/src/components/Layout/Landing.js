@@ -56,7 +56,6 @@ class Landing extends Component {
                             </Button>
                         </MuiThemeProvider>
                         <MuiThemeProvider theme={theme}>
-                            {/* <a href="#" className="button sign-in">Войти</a> */}
                             <Button
                                 variant="contained"
                                 color="secondary"

@@ -25,6 +25,7 @@ const TextAreaFieldGroup = ({
                 multiline
                 fullWidth
                 margin="normal"
+                rows="5"
             />
             {info && <small className="form-text">{info}</small>}
             {error && (<div className="invalid-feedback">{error}</div>)}
