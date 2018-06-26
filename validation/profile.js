@@ -26,43 +26,43 @@ module.exports = function validateProfileInput(data) {
 
     if (!isEmpty(data.website)) {
         if (!Validator.isURL(data.website)) {
-            errors.website = 'Нет действующего URL';
+            errors.website = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.youtube)) {
         if (!Validator.isURL(data.youtube)) {
-            errors.youtube = 'Нет действующего URL';
+            errors.youtube = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.twitter)) {
         if (!Validator.isURL(data.twitter)) {
-            errors.twitter = 'Нет действующего URL';
+            errors.twitter = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.vk)) {
         if (!Validator.isURL(data.vk)) {
-            errors.vk = 'Нет действующего URL';
+            errors.vk = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.facebook)) {
         if (!Validator.isURL(data.facebook)) {
-            errors.facebook = 'Нет действующего URL';
+            errors.facebook = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.instagram)) {
         if (!Validator.isURL(data.instagram)) {
-            errors.instagram = 'Нет действующего URL';
+            errors.instagram = 'Нет актуального URL';
         }
     }
 
     if (!isEmpty(data.linkedin)) {
         if (!Validator.isURL(data.linkedin)) {
-            errors.linkedin = 'Нет действующего URL';
+            errors.linkedin = 'Нет актуального URL';
         }
     }
 

@@ -14,7 +14,7 @@ const InputGroup = ({
     onChange
 }) => {
     return (
-        <div className="form-group input-group">
+        <div className="form-group input-group" style={{display: "flex", alignItems: "center"}}>
             <div className="input-group-pretend">
                 <span className="input-group-text">
                     <i className={icon}></i>

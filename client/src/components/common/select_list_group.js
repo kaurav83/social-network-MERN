@@ -18,7 +18,7 @@ const SelectListGroup = ({
         </option>
     ))
     return (
-        <div className="form-group">
+        <div className="form-group input-group">
             <NativeSelect
                 className={classnames('form-control', {
                     'is-invalid': error

@@ -8,6 +8,8 @@ import TextAreaFieldGroup from '../common/text_area_field_group';
 
 import Button from '@material-ui/core/Button';
 
+import './CreateProfile.css';
+
 class CreateProfile extends Component {
     constructor(props) {
         super(props);
@@ -65,7 +67,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в Twitter"
                         name="twitter"
-                        icon="twitter"
+                        icon="fab fa-twitter-square socials"
                         value={this.state.twitter}
                         onChange={this.onChange}
                         error={errors.twitter}
@@ -74,7 +76,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в LinkedIn"
                         name="linkedin"
-                        icon="linkedin"
+                        icon="fab fa-linkedin socials"
                         value={this.state.linkedin}
                         onChange={this.onChange}
                         error={errors.linkedin}
@@ -83,7 +85,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в Youtube"
                         name="youtube"
-                        icon="youtube"
+                        icon="fab fa-youtube socials"
                         value={this.state.youtube}
                         onChange={this.onChange}
                         error={errors.youtube}
@@ -92,7 +94,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в Instagram"
                         name="instagram"
-                        icon="instagram"
+                        icon="fab fa-instagram socials"
                         value={this.state.instagram}
                         onChange={this.onChange}
                         error={errors.instagram}
@@ -101,7 +103,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в Вконтакте"
                         name="vk"
-                        icon="vk"
+                        icon="fab fa-vk socials"
                         value={this.state.vk}
                         onChange={this.onChange}
                         error={errors.vk}
@@ -110,7 +112,7 @@ class CreateProfile extends Component {
                     <InputGroup
                         placeholder="Ссылка на профиль в Facebook"
                         name="facebook"
-                        icon="facebook"
+                        icon="fab fa-facebook socials"
                         value={this.state.facebook}
                         onChange={this.onChange}
                         error={errors.facebook}
@@ -243,19 +245,26 @@ class CreateProfile extends Component {
                                 info="Расскажите нам немного о себе"
                             />
 
-                            <div className="button">
+                            <div className="button-toggle-socials">
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    style={{ margin: "1rem .5rem", textTransform: 'capitalize' }}
+                                    style={{ margin: "0 .5rem 0 0", textTransform: 'capitalize' }}
                                     onClick={this.toggleSocialNetworksButton}
                                 >
                                     Добавить ссылки на соцсети
-                                    </Button>
+                                </Button>
                                 <span className="text-muted">Необязательно</span>
                             </div>
                             {socialInputs}
-                            <input type="submit"/>
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="secondary"
+                                style={{ width: "100%", margin: "2rem 0 0 0", borderRadius: "0" }}
+                            >
+                                Отправить
+                            </Button>
                         </form>
                     </div>
                 </div>

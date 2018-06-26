@@ -13,7 +13,7 @@ const TextAreaFieldGroup = ({
     onChange
 }) => {
     return (
-        <div className="form-group" style={{ width: "20rem" }}>
+        <div className="form-group  input-group">
             <TextField
                 placeholder={placeholder}
                 className={classnames('form-control', {

@@ -1,0 +1,38 @@
+.create-profile-wrapper {
+    margin: 4rem auto;
+}
+
+.create-profile-container {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.create-profile-title {
+    text-align: center;
+}
+
+.create-profile-text {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.create-profile-small-text {
+    margin: 3rem 0 0rem 0;
+    display: inline-block;
+    color: tomato;
+}
+
+.input-group {
+    margin: 3rem 0;
+}
+
+.input-group:last-child {
+    margin: 0;
+}
+
+.socials {
+    margin: 0 .5rem 0 0;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, .6);
+}
+
