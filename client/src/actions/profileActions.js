@@ -2,7 +2,8 @@ import axios from 'axios';
 import {GET_PROFILE, 
         PROFILE_LOADING, 
         CLEAR_CURRENT_PROFILE,
-        GET_ERRORS
+        GET_ERRORS,
+        SET_CURRENT_USER
     } from './types';
 
 // получаем текущий профиль
@@ -35,6 +36,25 @@ export const createProfile = (profileData, history) => dispatch => {
             })
         );
 };
+
+// удалить аккаунт и профиль
+export const deleteAccount = () => dispatch => {
+    if (window.confirm('Вы уверены? Этот аккаунт будет аннулирован')) {
+        axios.delete('/api/profile')
+            .then(res => 
+                dispatch({
+                    type: SET_CURRENT_USER,
+                    payload: {}
+                })
+            )
+            .catch(err => 
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            )
+    }
+}
 
 // загрузка профиля
 export const setProfileLoading = () => {

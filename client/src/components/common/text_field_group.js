@@ -16,7 +16,7 @@ const TextFieldGroup = ({
     disabled
 }) => {
     return (
-        <div className="form-group  input-group">
+        <div className="form-group">
             <Input
                 type={type}
                 placeholder={placeholder}

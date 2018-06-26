@@ -1,0 +1,63 @@
+.dashboard-container {
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.lead__link {
+    color: #0091EA;
+    text-decoration: underline;
+}
+
+.lead__link:hover {
+    color: #40C4FF;
+    text-decoration: none;
+}
+
+.links-group {
+    background: #FAFAFA;
+    margin: 1rem 0;
+    /* padding: 1rem 0; */
+}
+
+.links-group__link {
+    text-transform: capitalize;
+    color: #37474F;
+    font-size: 1rem;
+    margin-left: .3rem;
+    /*padding: 1rem;
+    */padding: .7rem 0;
+    transition: color .2s ease-out;
+    -webkit-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -ms-transition: color .2s ease-out;
+    -o-transition: color .2s ease-out;
+}
+
+button.links-group__button {
+    padding: 0 1rem;
+    min-height: 0;
+    /* margin: 0 1rem; */
+}
+
+button.links-group__button:hover {
+    background: transparent;
+}
+.dashboard-icons {
+    color: #CDDC39;
+    font-size: 1.2rem;
+    transition: color .2s ease-out;
+    -webkit-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -ms-transition: color .2s ease-out;
+    -o-transition: color .2s ease-out;
+}
+
+.links-group__button:hover .dashboard-icons,
+.links-group__button:hover .links-group__link {
+    color: #00B0FF;
+    transition: color .2s ease-in;
+    -webkit-transition: color .2s ease-in;
+    -moz-transition: color .2s ease-in;
+    -ms-transition: color .2s ease-in;
+    -o-transition: color .2s ease-in;
+}

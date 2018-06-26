@@ -204,7 +204,7 @@ class CreateProfile extends Component {
                                 value={this.state.handle}
                                 onChange={this.onChange}
                                 error={errors.handle}
-                                info="Уникальный обработчик для вашего URL профиля. Ваше полное имя, название компании, никнейм и т.д."
+                                info="Уникальный обработчик для вашего URL профиля. Это может быть Ваше полное имя, название компании, никнейм и т.д."
                             />
 
                             <SelectListGroup
