@@ -9,9 +9,8 @@ import TextAreaFieldGroup from '../common/text_area_field_group';
 
 import Button from '@material-ui/core/Button';
 
-import {createProfile} from '../../actions/profileActions';
-
-import './CreateProfile.css';
+import {createProfile, getCurrentProfile} from '../../actions/profileActions';
+import isEmpty from '../../validation/is_empty';
 
 class CreateProfile extends Component {
     constructor(props) {
@@ -41,9 +40,54 @@ class CreateProfile extends Component {
         this.toggleSocialNetworksButton = this.toggleSocialNetworksButton.bind(this);
     }
 
+    componentDidMount() {
+        this.props.getCurrentProfile();
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({errors: nextProps.errors});
+        }
+
+        if (nextProps.profile.profile) {
+            const profile = nextProps.profile.profile;
+
+            // bring skills array back to csv
+            const skillsCSV = profile.skills.join(',');
+
+            // если поле профиля не существует, создаём пустую строку
+            profile.company = !isEmpty(profile.company) ? profile.company : '';
+            profile.website = !isEmpty(profile.website) ? profile.website : '';
+            profile.location = !isEmpty(profile.location) ? profile.location : '';
+            profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
+            profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+            profile.social = !isEmpty(profile.social) ? profile.social : {};
+
+            profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
+            profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : '';
+            profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
+            profile.vk = !isEmpty(profile.social.vk) ? profile.social.vk : '';
+            profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : '';
+            profile.linkedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : '';
+
+            // устанавливаем состояние полей в компоненте
+            this.setState({
+                handle: profile.handle,
+                company: profile.company,
+                website: profile.website,
+                location: profile.location,
+                status: profile.status,
+                skills: profile.skills,
+                githubusername: profile.githubusername,
+                bio: profile.bio,
+                twitter: profile.twitter,
+                facebook: profile.facebook,
+                linkedin: profile.linkedin,
+                youtube: profile.youtube,
+                instagram: profile.instagram,
+                vk: profile.vk,
+            });
+            
         }
     }
 
@@ -191,11 +235,8 @@ class CreateProfile extends Component {
                 <div className="create-profile-wrapper">
                     <div className="create-profile-container">
                         <h1 className="create-profile-title">
-                            Создайте Ваш профиль
+                            Редактирование профиля
                         </h1>
-                        <p className="create-profile-text">
-                            Заполните как можно больше полей, чтобы сделать ваш профиль более информативным
-                        </p>
                         <small className="create-profile-small-text">* = обязательные поля</small>
                         <form onSubmit={this.onSubmit}>
                             <div className="input-group">
@@ -307,7 +348,9 @@ class CreateProfile extends Component {
 
 CreateProfile.propTypes = {
     profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -317,4 +360,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
+export default connect(mapStateToProps, {createProfile, getCurrentProfile})(withRouter(CreateProfile));

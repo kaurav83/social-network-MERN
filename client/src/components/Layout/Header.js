@@ -39,7 +39,24 @@ class Header extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
     const authLinks = (
-      <ul className="navbar-list">
+      <ul className="navbar-list authLinks">
+        <li className="navbar-list__item  sign-up">
+          <MuiThemeProvider theme={theme}>
+            <Button
+              className="navbar-list__button"
+              color="secondary"
+              variant="text"
+            >
+              <NavLink to="/dashboard"
+                style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                className="navbar-list__link"
+                activeClassName="selected"
+              >
+                Панель управления
+                  </NavLink>
+            </Button>
+          </MuiThemeProvider>
+        </li>
         <li className="navbar-list__item sign-in">
           <MuiThemeProvider theme={theme}>
             <Button
