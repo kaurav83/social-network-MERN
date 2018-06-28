@@ -21,6 +21,7 @@ import './App.css';
 import PrivateRoute from './components/common/private_route';
 import CreateProfile from './components/CreateProfile';
 import EditProfile from './components/EditProfile';
+import AddExperience from './components/AddCredentials/AddExperience';
 
 // проверяем токен
 if (localStorage.jwtToken) {
@@ -62,6 +63,9 @@ class App extends Component {
             </Switch>
             <Switch>
               <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/add-experience" component={AddExperience} />
             </Switch>
             <Footer />
           </div>
