@@ -10,7 +10,7 @@ module.exports = function validateExperienceInput(data) {
     data.from = !isEmpty(data.from) ? data.from : '';
 
     if (Validator.isEmpty(data.school)) {
-        errors.school = "Поле школы в которой вы учились обязательно!";
+        errors.school = "Поле ВУЗа в котором вы учились обязательно!";
     }
 
     if (Validator.isEmpty(data.degree)) {

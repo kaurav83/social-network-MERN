@@ -49,6 +49,18 @@ export const addExperience = (expData, history) => dispatch => {
         )
 }
 
+// добавляем образование
+export const addEducation = (educData, history) => dispatch => {
+    axios.post('/api/profile/education', educData)
+        .then(res => history.push('/dashboard'))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+}
+
 // удалить аккаунт и профиль
 export const deleteAccount = () => dispatch => {
     if (window.confirm('Вы уверены? Этот аккаунт будет аннулирован')) {

@@ -15,17 +15,11 @@ import Button from '@material-ui/core/Button';
 const theme = createMuiTheme({
     palette: {
         primary: {
-            light: '#FFCDD2',
-            main: '#F44336',
-            dark: '#FF1744',
+            light: '#fff9c4',
+            main: '#ffeb3b',
+            dark: '#ffc107',
             contrastText: '#000',
-        },
-        secondary: {
-            light: '#CCFF90',
-            main: '#76FF03',
-            dark: '#64DD17',
-            contrastText: '#000',
-        },
+        }
     },
 });
 
@@ -86,9 +80,9 @@ class AddExperience extends Component {
         const { errors } = this.state;
 
         return (
-            <div className="add-experience">
-                <div className="add-experience__container">
-                    <div className="add-experience__content">
+            <div className="add-credentials">
+                <div className="add-credentials__container">
+                    <div className="add-credentials__content">
                         <MuiThemeProvider theme={theme}>
                             <Button
                                 color="primary"
@@ -104,7 +98,7 @@ class AddExperience extends Component {
                         <p className="text-center">
                             Добавить место работы или должность на которой вы были заняты ранее или в настоящее время
                         </p>
-                        <small className="">* = эти поля обязательны</small>
+                        <small  className="small-require">* = эти поля обязательны</small>
                         <form onSubmit={this.onSubmit}>
                             <div className="input-group">
                                 <TextFieldGroup
@@ -134,7 +128,7 @@ class AddExperience extends Component {
                                 />
                             </div>
                             <div className="input-group">
-                                <h6>Начиная с</h6>
+                                <h6>с</h6>
                                 <TextFieldGroup
                                     name="from"
                                     type="date"
@@ -180,6 +174,7 @@ class AddExperience extends Component {
                                         variant="contained"
                                         // style={{ textTransform: 'capitalize', color: "#fff" }}
                                         type="submit"
+                                        fullWidth
                                     >
                                         Отправить
                                    </Button>
