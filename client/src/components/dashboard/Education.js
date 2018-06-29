@@ -6,8 +6,10 @@ import Moment from 'react-moment';
 
 import { deleteEducation } from '../../actions/profileActions';
 
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Delete from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const theme = createMuiTheme({
     palette: {
@@ -28,6 +30,18 @@ const theme = createMuiTheme({
 
 
 class Education extends Component {
+    state = {
+        open: false,
+    }
+
+    handleTooltipClose = () => {
+        this.setState({ open: false });
+    };
+    
+    handleTooltipOpen = () => {
+        this.setState({ open: true });
+    };
+
     onDeleteClick(id) {
         this.props.deleteEducation(id);
     }
@@ -48,16 +62,24 @@ class Education extends Component {
                     </td>
                     <td>
                         <MuiThemeProvider theme={theme}>
-                            <Button
-                                color="primary"
-                                variant="contained"
-                                style={{ textTransform: 'capitalize', color: "#fff" }}
-                                onClick={this.onDeleteClick.bind(this, item._id)}
+                            <Tooltip
+                                enterDelay={300}
+                                id="tooltip-controlled"
+                                leaveDelay={300}
+                                onClose={this.handleTooltipClose}
+                                onOpen={this.handleTooltipOpen}
+                                open={this.state.open}
+                                placement="right"
+                                title="Удалить"
                             >
-                                Удалить
-                                </Button>
+                                <IconButton
+                                    color="primary"
+                                    onClick={this.onDeleteClick.bind(this, item._id)}
+                                >
+                                    <Delete className="delete-icon icon" />
+                                </IconButton>
+                            </Tooltip>
                         </MuiThemeProvider>
-
                     </td>
                 </tr>
             );

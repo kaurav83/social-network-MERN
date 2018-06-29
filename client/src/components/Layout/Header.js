@@ -50,7 +50,11 @@ class Header extends Component {
               <NavLink to="/dashboard"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected-item"
+                // activeClassName="selected-item"
+                // activeStyle={{
+                //     color: "yellow",
+                //     textDecoration: "underline"
+                // }}
               >
                 Панель управления
                   </NavLink>
@@ -96,7 +100,11 @@ class Header extends Component {
               <NavLink to="/register"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected-item"
+                // activeClassName="selected-item"
+                // activeStyle={{
+                //   color: "yellow",
+                //   textDecoration: "underline"
+                // }}
               >
                 Зарегистрироваться
               </NavLink>
@@ -113,7 +121,11 @@ class Header extends Component {
               <NavLink to="/login"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected-item"
+                // activeClassName="selected-item"
+                // activeStyle={{
+                //   color: "yellow",
+                //   textDecoration: "underline"
+                // }}
               >
                 Авторизоваться
                   </NavLink>
@@ -140,12 +152,16 @@ class Header extends Component {
                   color="secondary"
                   className="navbar-list__button"
                   variant="text"
-                  style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                  
                 >
                   <NavLink to="/profiles"
                     style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                     className="navbar-list__link"
-                    activeClassName="selected-item"
+                    // activeClassName="selected-item"
+                    // activeStyle={{
+                    //   color: "yellow",
+                    //   textDecoration: "underline"
+                    // }}
                   >
                     Разработчики
                   </NavLink>

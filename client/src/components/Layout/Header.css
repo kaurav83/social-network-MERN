@@ -76,10 +76,10 @@
     margin-right: 1.5rem;
 }
 
-.navbar-list__link.selected-item {
+/* .selected-item {
     color: yellow;
     text-decoration: underline;
-}
+} */
 
 .navbar-list__button.MuiButton-textSecondary-4:hover {
     background-color: rgba(255, 255, 255, 0);
