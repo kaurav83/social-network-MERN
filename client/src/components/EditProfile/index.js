@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/text_field_group';
 import InputGroup from '../common/input_group';
@@ -8,9 +8,22 @@ import SelectListGroup from '../common/select_list_group';
 import TextAreaFieldGroup from '../common/text_area_field_group';
 
 import Button from '@material-ui/core/Button';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import {createProfile, getCurrentProfile} from '../../actions/profileActions';
 import isEmpty from '../../validation/is_empty';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#fff9c4',
+            main: '#ffeb3b',
+            dark: '#ffc107',
+            contrastText: '#000',
+        }
+    },
+});
+
 
 class CreateProfile extends Component {
     constructor(props) {
@@ -234,6 +247,17 @@ class CreateProfile extends Component {
             <div className="create-profile">
                 <div className="create-profile-wrapper">
                     <div className="create-profile-container">
+                        <MuiThemeProvider theme={theme}>
+                            <Button
+                                color="primary"
+                                variant="contained"
+                                style={{ textTransform: 'capitalize', color: "#fff" }}
+                            >
+                                <Link to="/dashboard" className="go-back">
+                                    Вернуться
+                                </Link>
+                            </Button>
+                        </MuiThemeProvider>
                         <h1 className="create-profile-title">
                             Редактирование профиля
                         </h1>

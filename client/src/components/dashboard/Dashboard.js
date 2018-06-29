@@ -7,6 +7,8 @@ import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import Spinner from '../Spinner';
 
 import ProfileActions from './ProfileActions';
+import Experience from './Experience';
+import Education from './Education';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -38,6 +40,7 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log(this.props, 'props')
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
 
@@ -54,7 +57,8 @@ class Dashboard extends Component {
                             Привет, <Link to={`/profile/${profile.handle}`} className="lead__link">{user.name}</Link>
                         </p>
                         <ProfileActions />
-                        {/* TODO: experience and education */}
+                        <Experience experience={profile.experience} />
+                        <Education education={profile.education} />
                         <div style={{ marginBottom: "4rem" }}>
                             <MuiThemeProvider theme={theme}>
                                 <Button

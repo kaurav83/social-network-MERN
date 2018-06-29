@@ -80,7 +80,7 @@ class AddEducation extends Component {
 
     render() {
         const { errors } = this.state;
-
+        
         return (
             <div className="add-credentials">
                 <div className="add-credentials__container">
@@ -98,7 +98,7 @@ class AddEducation extends Component {
                         </MuiThemeProvider>
                         <h1 className="text-center">Добавить образование</h1>
                         <p className="text-center">
-                            Добавить ВУЗ, учебные курсы и т.д., которые вы посещали
+                            Добавте ВУЗ и учебные курсы , которые вы посещали
                         </p>
                         <small className="small-require">* = эти поля обязательны</small>
                         <form onSubmit={this.onSubmit}>

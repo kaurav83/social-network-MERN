@@ -49,10 +49,44 @@ export const addExperience = (expData, history) => dispatch => {
         )
 }
 
+// удалить опыт
+export const deleteExperience = (id) => dispatch => {
+    axios.delete(`/api/profile/experience/${id}`)
+        .then(res => 
+            dispatch({
+                type: GET_PROFILE,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+}
+
 // добавляем образование
 export const addEducation = (educData, history) => dispatch => {
     axios.post('/api/profile/education', educData)
         .then(res => history.push('/dashboard'))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+}
+
+// удалить образование
+export const deleteEducation = (id) => dispatch => {
+    axios.delete(`/api/profile/education/${id}`)
+        .then(res => 
+            dispatch({
+                type: GET_PROFILE,
+                payload: res.data
+            })
+        )
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,
@@ -93,3 +127,4 @@ export const clearCurrentProfile = () => {
         type: CLEAR_CURRENT_PROFILE
     };
 };
+
