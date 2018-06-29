@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {GET_PROFILE, 
+        GET_PROFILES,
         PROFILE_LOADING, 
         CLEAR_CURRENT_PROFILE,
         GET_ERRORS,
@@ -126,5 +127,23 @@ export const clearCurrentProfile = () => {
     return {
         type: CLEAR_CURRENT_PROFILE
     };
+};
+
+// получить все профили
+export const getProfiles = () => dispatch => {
+    dispatch(setProfileLoading());
+    axios.get('api/profile/all')
+        .then(res => 
+            dispatch({
+                type: GET_PROFILES,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_PROFILES,
+                payload: null
+            })
+        );
 };
 

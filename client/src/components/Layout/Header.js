@@ -50,7 +50,7 @@ class Header extends Component {
               <NavLink to="/dashboard"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected"
+                activeClassName="selected-item"
               >
                 Панель управления
                   </NavLink>
@@ -96,10 +96,10 @@ class Header extends Component {
               <NavLink to="/register"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected"
+                activeClassName="selected-item"
               >
                 Зарегистрироваться
-                  </NavLink>
+              </NavLink>
             </Button>
           </MuiThemeProvider>
         </li>
@@ -113,7 +113,7 @@ class Header extends Component {
               <NavLink to="/login"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                activeClassName="selected"
+                activeClassName="selected-item"
               >
                 Авторизоваться
                   </NavLink>
@@ -145,7 +145,7 @@ class Header extends Component {
                   <NavLink to="/profiles"
                     style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                     className="navbar-list__link"
-                    activeClassName="selected"
+                    activeClassName="selected-item"
                   >
                     Разработчики
                   </NavLink>
