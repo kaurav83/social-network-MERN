@@ -40,7 +40,6 @@ class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.props, 'props')
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
 
