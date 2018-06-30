@@ -44,14 +44,14 @@ class Dashboard extends Component {
         const { profile, loading } = this.props.profile;
 
         let dashboardContent;
-
         if (profile === null || loading) {
-            dashboardContent = <h4><Spinner /></h4>
+            dashboardContent = <h4 className="spinner"><Spinner /></h4>
         } else {
             // делаем проверку, имеет ли залогированный пользователь данные профиля
             if (Object.keys(profile).length > 0) {
                 dashboardContent = (
-                    <div>
+                    <div className="dashboard-container">
+                        <h1 className="dashboard-title">Панель управления</h1>
                         <p className="lead lead--muted">
                             Привет, <Link to={`/profile/${profile.handle}`} className="lead__link">{user.name}</Link>
                         </p>
@@ -75,12 +75,23 @@ class Dashboard extends Component {
             } else {
                 // пользователь залогирован но у него нет профиля
                 dashboardContent = (
-                    <div>
-                        <p className="lead lead--muted">Привет, {user.name}</p>
-                        <p>Вы еще не установили профиль, пожалуйста, добавьте какую то информацию</p>
-                        <Link to="/create-profile">
-                            Создать профиль
-                        </Link>
+                    <div className="dashboard-non-profile">
+                        <div className="dashboard-container-non-profile">
+                            <h1 className="dashboard-title-non-profile">Панель управления</h1>
+                            <p className="lead lead--muted">Привет, <span>{user.name}</span></p>
+                            <p style={{marginTop: "1rem"}}>Вы еще не оформили профиль, пожалуйста, добавьте какую-то информацию</p>
+                            <MuiThemeProvider theme={theme}>
+                                <Button
+                                    color="secondary"
+                                    variant="contained"
+                                    style={{textTransform: 'capitalize', color: "#fff", marginTop: "2rem", padding: "0", minHeight: "0"}}
+                                >
+                                    <Link to="/create-profile" style={{minHeight: "36px", display: "inline-block", padding: "8px 16px"}}>
+                                         Создать профиль
+                                    </Link>
+                                </Button>
+                            </MuiThemeProvider>
+                        </div>
                     </div>
                 );
             }
@@ -88,10 +99,7 @@ class Dashboard extends Component {
 
         return (
             <div className="dashboard">
-                <div className="dashboard-container">
-                    <h1 className="dashboard-title">Dashboard</h1>
-                    {dashboardContent}
-                </div>
+                {dashboardContent}
             </div>
         )
     }

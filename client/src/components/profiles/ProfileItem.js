@@ -6,6 +6,7 @@ import isEmpty from '../../validation/is_empty';
 class ProfileItem extends Component {
   render() {
     const {profile} = this.props;
+
     return (
       <div className="profile-item">
         <div className="profile-card">
