@@ -69,6 +69,14 @@
     position: relative;
 }
 
+.not-found {
+    flex: 1 1 auto;
+    order: 2;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
 .footer {
     flex: 0 0 auto;
     order: 4;

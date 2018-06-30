@@ -43,9 +43,9 @@ class CreateProfile extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-            this.setState({errors: nextProps.errors});
+          this.setState({ errors: nextProps.errors });
         }
-    }
+      }
 
     onChange(e) {
         this.setState({
@@ -64,7 +64,7 @@ class CreateProfile extends Component {
             status: this.state.status,
             skills: this.state.skills,
             githubusername: this.state.githubusername,
-            bio: this.state.bio,
+            bio: this.state.bio, 
             twitter: this.state.twitter,
             facebook: this.state.facebook,
             linkedin: this.state.linkedin,

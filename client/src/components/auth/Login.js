@@ -83,7 +83,7 @@ class Login extends Component {
                     <div className="auth-content">
                         <div className="auth-inner">
                             <h1 className="auth-title">Авторизуйтесь</h1>
-                            <p className="auth-lead">Войдите в ваш аккаунт</p>
+                            <p className="auth-lead">Войдите в свой аккаунт</p>
                             <form noValidate onSubmit={this.onSubmit}>
                                 <TextFieldGroup
                                     placeholder="Email адрес"

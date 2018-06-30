@@ -84,7 +84,7 @@ class Register extends Component {
           <div className="auth-content">
             <div className="auth-inner">
               <h1 className="auth-title">Зарегистрироваться</h1>
-              <p className="auth-lead">Создайте ваш аккаунт</p>
+              <p className="auth-lead">Создайте аккаунт</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Имя"

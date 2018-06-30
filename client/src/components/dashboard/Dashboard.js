@@ -58,7 +58,7 @@ class Dashboard extends Component {
                         <ProfileActions />
                         <Experience experience={profile.experience} />
                         <Education education={profile.education} />
-                        <div style={{ marginBottom: "4rem" }}>
+                        <div style={{ marginTop: "2rem" }}>
                             <MuiThemeProvider theme={theme}>
                                 <Button
                                     color="primary"

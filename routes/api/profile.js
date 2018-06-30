@@ -117,7 +117,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     }
 
     if (req.body.bio) profileFields.bio = req.body.bio;
-    if (req.body.githubsername) profileFields.githubsername = req.body.githubsername;
+    if (req.body.githubusername) profileFields.githubusername = req.body.githubusername;
 
     // Соцсети
     profileFields.social = {};

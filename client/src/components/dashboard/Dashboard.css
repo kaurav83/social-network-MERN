@@ -65,3 +65,27 @@ button.links-group__button:hover {
 .icon.delete-icon {
     font-size: 2.5rem;
 }
+
+.table-title {
+    font-size: 1.4rem;
+    margin: 3rem 0 1rem 0;
+}
+
+.table-dashboard {
+    border: .0625rem solid black;
+    min-width: 100%;
+}
+
+.thead-dashboard th {
+    border: .0625rem solid #ccc;
+    padding: .5rem 0;
+}
+
+.row-tbody {
+    border: .0625rem solid #ccc;
+}
+
+.row-tbody td {
+    border: .0625rem solid #ccc;
+    text-align: center;
+}

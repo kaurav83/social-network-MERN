@@ -9,7 +9,6 @@ import { deleteEducation } from '../../actions/profileActions';
 import IconButton from '@material-ui/core/IconButton';
 import Delete from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
 
 const theme = createMuiTheme({
     palette: {
@@ -37,7 +36,7 @@ class Education extends Component {
     handleTooltipClose = () => {
         this.setState({ open: false });
     };
-    
+
     handleTooltipOpen = () => {
         this.setState({ open: true });
     };
@@ -49,7 +48,7 @@ class Education extends Component {
     render() {
         const education = this.props.education.map(item => {
             return (
-                <tr key={item._id}>
+                <tr key={item._id} className="row-tbody">
                     <td>{item.school}</td>
                     <td>{item.degree}</td>
                     <td>
@@ -62,23 +61,13 @@ class Education extends Component {
                     </td>
                     <td>
                         <MuiThemeProvider theme={theme}>
-                            <Tooltip
-                                enterDelay={300}
-                                id="tooltip-controlled"
-                                leaveDelay={300}
-                                onClose={this.handleTooltipClose}
-                                onOpen={this.handleTooltipOpen}
-                                open={this.state.open}
-                                placement="right"
+                            <IconButton
+                                color="primary"
                                 title="Удалить"
+                                onClick={this.onDeleteClick.bind(this, item._id)}
                             >
-                                <IconButton
-                                    color="primary"
-                                    onClick={this.onDeleteClick.bind(this, item._id)}
-                                >
-                                    <Delete className="delete-icon icon" />
-                                </IconButton>
-                            </Tooltip>
+                                <Delete className="delete-icon icon" />
+                            </IconButton>
                         </MuiThemeProvider>
                     </td>
                 </tr>
@@ -86,14 +75,14 @@ class Education extends Component {
         })
         return (
             <div>
-                <h4>Учётные данные об образовании</h4>
+                <h4 className="table-title">Учётные данные об образовании</h4>
                 <table className="table-dashboard">
-                    <thead>
+                    <thead className="thead-dashboard">
                         <tr>
                             <th>Школа</th>
                             <th>Степень</th>
                             <th>Года</th>
-                            <th></th>
+                            <th style={{ borderBottom: 'none' }}></th>
                         </tr>
 
                         {education}
