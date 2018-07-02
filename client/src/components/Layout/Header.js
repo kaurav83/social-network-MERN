@@ -40,6 +40,27 @@ class Header extends Component {
     const { isAuthenticated, user } = this.props.auth;
     const authLinks = (
       <ul className="navbar-list authLinks">
+        <li className="navbar-list__item">
+          <MuiThemeProvider theme={theme}>
+            <Button
+              className="navbar-list__button"
+              color="secondary"
+              variant="text"
+            >
+              <NavLink to="/feed"
+                style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
+                className="navbar-list__link"
+                // activeClassName="selected-item"
+                // activeStyle={{
+                //     color: "yellow",
+                //     textDecoration: "underline"
+                // }}
+              >
+                Записи
+              </NavLink>
+            </Button>
+          </MuiThemeProvider>
+        </li>
         <li className="navbar-list__item  sign-up">
           <MuiThemeProvider theme={theme}>
             <Button
@@ -57,7 +78,7 @@ class Header extends Component {
                 // }}
               >
                 Панель управления
-                  </NavLink>
+              </NavLink>
             </Button>
           </MuiThemeProvider>
         </li>
