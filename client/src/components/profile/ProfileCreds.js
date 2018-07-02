@@ -8,8 +8,8 @@ class ProfileCreds extends Component {
         const experienceItems = experience.map((item, _id) => {
             return (
                 <li key={item._id} className="list-item">
-                    <h4>{item.company}</h4>
-                    <p>
+                    <h4 className="headerCreds-subtitle">{item.company}</h4>
+                    <p  className="headerCreds-text">
                         <Moment format="DD/MM/YYYY">{item.from}</Moment> -
                         {
                             item.to === null ?
@@ -18,13 +18,13 @@ class ProfileCreds extends Component {
                                 (<Moment format="DD/MM/YYYY">{item.to}</Moment>)
                         }
                     </p>
-                    <p>
+                    <p  className="headerCreds-text">
                         <strong>Позиция:</strong> {item.title}
                     </p>
-                    <p>
+                    <p  className="headerCreds-text">
                         {item.location === "" ? null : (<span><strong>Местоположение: </strong> {item.location}</span>)}
                     </p>
-                    <p>
+                    <p  className="headerCreds-text">
                         {item.description === "" ? null : (<span><strong>Описание: </strong> {item.description}</span>)}
                     </p>
                 </li>
@@ -34,8 +34,8 @@ class ProfileCreds extends Component {
         const educationItems = education.map((item, _id) => {
             return (
                 <li key={item._id} className="list-item">
-                    <h4>{item.school}</h4>
-                    <p>
+                    <h4 className="headerCreds-subtitle">{item.school}</h4>
+                    <p className="headerCreds-text">
                         <Moment format="DD/MM/YYYY">{item.from}</Moment> -
                         {
                             item.to === null ?
@@ -44,16 +44,16 @@ class ProfileCreds extends Component {
                                 (<Moment format="DD/MM/YYYY">{item.to}</Moment>)
                         }
                     </p>
-                    <p>
+                    <p className="headerCreds-text">
                         <strong>Степень:</strong> {item.degree}
                     </p>
-                    <p>
+                    <p className="headerCreds-text">
                         <strong>Специальность:</strong> {item.fieldofstudy}
                     </p>
-                    <p>
+                    <p className="headerCreds-text">
                         {item.location === "" ? null : (<span><strong>Местоположение: </strong> {item.location}</span>)}
                     </p>
-                    <p>
+                    <p className="headerCreds-text">
                         {item.description === "" ? null : (<span><strong>Описание: </strong> {item.description}</span>)}
                     </p>
                 </li>
@@ -62,7 +62,7 @@ class ProfileCreds extends Component {
         return (
             <div className="headerCreds-container">
                 <div className="headerCreds-content">
-                    <h3 className="text-center text-info">Опыт</h3>
+                    <h3 className="headerCreds-text-center">Опыт</h3>
                     {
                         experienceItems && experienceItems.length > 0  ?
                             (<ul className="list-group">
@@ -75,7 +75,7 @@ class ProfileCreds extends Component {
                 </div>
 
                 <div className="headerCreds-content">
-                    <h3 className="text-center text-info">Образование</h3>
+                    <h3 className="headerCreds-text-center">Образование</h3>
                     {
                         educationItems && educationItems.length > 0  ?
                             (

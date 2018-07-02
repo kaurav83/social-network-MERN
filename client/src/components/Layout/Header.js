@@ -163,7 +163,7 @@ class Header extends Component {
                     //   textDecoration: "underline"
                     // }}
                   >
-                    Разработчики
+                    Сеть
                   </NavLink>
                 </Button>
               </MuiThemeProvider>

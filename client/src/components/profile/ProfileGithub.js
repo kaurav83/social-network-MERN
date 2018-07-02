@@ -33,24 +33,24 @@ class ProfileGithub extends Component {
     const { repos } = this.state;
     
     const repoItems = repos.map(repo => (
-      <div key={repo.id} className="card card-body mb-2">
-        <div className="row">
-          <div className="col-md-6">
-            <h4>
-              <a href={repo.html_url} className="text-info" target="_blank">
+      <div key={repo.id} className="headerGitgub-repos">
+        <div className="headerGitgub-repos__item">
+          <div className="headerGitgub-repos__stuf">
+            <h4 className="headerGitgub-repos__name">
+              <a href={repo.html_url} className="headerGitgub-repos__link" target="_blank">
                 {repo.name}
               </a>
             </h4>
             <p>{repo.description}</p>
           </div>
-          <div className="col-md-6">
-            <span className="badge badge-info mr-1">
+          <div className="headerGitgub-repos__credentials">
+            <span className="headerGitgub-repos__cred yellow">
               Stars: {repo.stargazers_count}
             </span>
-            <span className="badge badge-secondary mr-1">
+            <span className="headerGitgub-repos__cred green">
               Watchers: {repo.watchers_count}
             </span>
-            <span className="badge badge-success">
+            <span className="headerGitgub-repos__cred purple">
               Forks: {repo.forks_count}
             </span>
           </div>
@@ -58,9 +58,8 @@ class ProfileGithub extends Component {
       </div>
     ));
     return (
-      <div ref="myRef">
-        <hr />
-        <h3 className="mb-4">Самые последние Github репозитории</h3>
+      <div ref="myRef" className="headerGitgub-container">
+        <h3 className="headerGitgub-text-center">Самые последние Github репозитории</h3>
         {repoItems}
       </div>
     );

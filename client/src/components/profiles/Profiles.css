@@ -1,0 +1,61 @@
+.profiles-container {
+    background: #fafbfc;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1rem 2rem 2rem 2rem;
+    margin: 4rem auto;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.profile-item  {
+    background: #fff;
+    margin: 1rem 0;
+    box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.1), 0px 2px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 5px 0px rgba(0, 0, 0, 0.06);
+    border: .0625rem solid #ddd;
+}
+
+.profile-card {
+    padding: 2rem;
+    display: flex;
+    /* align-items: center; */
+}
+
+.share-block {
+    margin-left: auto;
+    display: flex;
+}
+
+.button-link-ingroup {
+    margin: .5rem 0;
+}
+
+.skills-set {
+    /* margin-left: auto; */
+}
+
+.profile-data {
+    max-width: 30rem;
+    margin-left: 1.5rem;
+}
+
+.skills-set {
+    margin-right: 1.5rem;
+}
+
+.skills-set__title {
+    margin: .5rem 0;
+    font-size: 1.2rem;
+}
+
+.profile-data__name {
+    margin: .5rem 0;
+    font-size: 1.4rem;
+}
+
+.list-group-item span {
+    font-size: 1.2rem;
+}
+
+.list-group-item i {
+    font-size: .9rem;
+}

@@ -74,7 +74,7 @@ class Education extends Component {
             );
         })
         return (
-            <div>
+            <div className="table-block">
                 <h4 className="table-title">Учётные данные об образовании</h4>
                 <table className="table-dashboard">
                     <thead className="thead-dashboard">

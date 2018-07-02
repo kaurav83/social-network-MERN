@@ -251,9 +251,10 @@ class CreateProfile extends Component {
                             <Button
                                 color="primary"
                                 variant="contained"
-                                style={{ textTransform: 'capitalize', color: "#fff" }}
+                                style={{textTransform: 'capitalize', color: "#fff", marginTop: "2rem", padding: "0", minHeight: "0"}}
+                                className="go-back"
                             >
-                                <Link to="/dashboard" className="go-back">
+                                <Link to="/dashboard"  style={{display: "inline-block", padding: "8px 16px"}}>
                                     Вернуться
                                 </Link>
                             </Button>

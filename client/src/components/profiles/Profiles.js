@@ -15,7 +15,7 @@ class Profiles extends Component {
         let profileItems;
 
         if (profiles === null || loading) {
-            profileItems = <Spinner />;
+            profileItems = <h4 className="spinner"><Spinner /></h4>; 
         } else {
             if (profiles.length > 0) {
                 profileItems = profiles.map(profile => (
@@ -28,7 +28,7 @@ class Profiles extends Component {
 
         return (
             <div className="profiles">
-                <div className="profiles-container ">
+                <div className="profiles-container">
                     <div className="profiles-content">
                         <h1 className="text-center">Профили разработчиков</h1>
                         <p className="profiles-lead text-center">

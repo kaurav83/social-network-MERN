@@ -86,7 +86,7 @@ class Dashboard extends Component {
                                     variant="contained"
                                     style={{textTransform: 'capitalize', color: "#fff", marginTop: "2rem", padding: "0", minHeight: "0"}}
                                 >
-                                    <Link to="/create-profile" style={{minHeight: "36px", display: "inline-block", padding: "8px 16px"}}>
+                                    <Link to="/create-profile" style={{display: "inline-block", padding: "8px 16px"}}>
                                          Создать профиль
                                     </Link>
                                 </Button>

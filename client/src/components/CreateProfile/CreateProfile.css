@@ -1,5 +1,9 @@
 .create-profile-wrapper {
     margin: 4rem auto;
+    background: #fff;
+    max-width: 75rem;
+    padding: 3rem 0;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
 }
 
 .create-profile-container {
@@ -35,3 +39,8 @@
     font-size: 1.5rem;
     color: rgba(0, 0, 0, .6);
 }
+
+button.go-back {
+    /* margin-top: 2rem; */
+}
+
