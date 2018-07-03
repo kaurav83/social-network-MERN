@@ -24,8 +24,8 @@ function PostAvatar(props) {
     return (
         <div className={classes.row}>
             <Avatar
-                alt={props.itemPost.name}
-                src={props.itemPost.avatar}
+                alt={props.post.name}
+                src={props.post.avatar}
                 className={classNames(classes.avatar, classes.bigAvatar)}
             />
         </div>

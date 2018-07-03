@@ -12,6 +12,7 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import Delete from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import spacing from '@material-ui/core/styles/spacing';
 
 const theme = createMuiTheme({
     palette: {
@@ -54,38 +55,39 @@ class PostItem extends Component {
     }
 
     render() {
-        const { itemPost, auth } = this.props;
-
+        const { post, auth, showActions } = this.props;
+        console.log(post, 'PSTO')
         return (
             <div className="post-item">
                 <div className="post-item__container">
                     <div className="post-item__content">
                         <div className="post-item__link">
-                            <Link to={`/profile/${auth.user.name}`}>
-                                <PostAvatar itemPost={itemPost} />
-                            </Link>
-                            <p className="post-item__text">{itemPost.name}</p>
+                            <PostAvatar post={post} />
+                            <p className="post-item__text">{post.name}</p>
                         </div>
                         <div className="post-item__inner-content">
-                            <p className="post-item__lead-text">{itemPost.text}</p>
+                            <p className="post-item__lead-text">{post.text}</p>
 
-                            <MuiThemeProvider theme={theme}>
+                            {
+                                showActions ? (
+                                    <span>
+                                        <MuiThemeProvider theme={theme}>
                                 <IconButton
                                     color="secondary"
                                     // title="Удалить"
-                                    onClick={this.onLike.bind(this, itemPost._id)}
+                                    onClick={this.onLike.bind(this, post._id)}
                                 >
                                     <ThumbUp className={classnames("thumb-up icon", {
-                                        'text-info-btn': this.findUserClicked(itemPost.likes)
+                                        'text-info-btn': this.findUserClicked(post.likes)
                                     })} />
-                                    <span className="counter-likes">{itemPost.likes.length}</span>
+                                    <span className="counter-likes">{post.likes.length}</span>
                                 </IconButton>
                             </MuiThemeProvider>
                             <MuiThemeProvider theme={theme}>
                                 <IconButton
                                     color="secondary"
                                     // title="Удалить"
-                                    onClick={this.onUnlike.bind(this, itemPost._id)}
+                                    onClick={this.onUnlike.bind(this, post._id)}
                                 >
                                     <ThumbDown className="thumb-down icon" />
                                 </IconButton>
@@ -97,23 +99,27 @@ class PostItem extends Component {
                                         variant="contained"
                                         // title="Удалить"
                                 >
-                                    <Link to={`/post/${itemPost._id}`} className="link-to-id">
+                                    <Link to={`/post/${post._id}`} className="link-to-id">
                                         Комментарии
                                     </Link>
                                 </Button>
                             </MuiThemeProvider>
-                            {itemPost.user === auth.user.id ? (
+                            {post.user === auth.user.id ? (
                                 <MuiThemeProvider theme={theme}>
                                     <IconButton
                                         color="primary"
                                         // variant="contained"
                                         // title="Удалить"
-                                        onClick={this.onDeleteClick.bind(this, itemPost._id)}
+                                        onClick={this.onDeleteClick.bind(this, post._id)}
                                     >
                                         <Delete className="delete-icon icon" />
                                     </IconButton>
                                 </MuiThemeProvider>
                             ) : null}
+                                    </span>
+                                ) : null
+                            
+                            }
                         </div>
                     </div>
                 </div>
@@ -122,8 +128,12 @@ class PostItem extends Component {
     }
 }
 
+PostItem.defaultProps = {
+    showActions: true
+}
+
 PostItem.propTypes = {
-    itemPost: PropTypes.object.isRequired,
+    // post: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     deletePost: PropTypes.func.isRequired,
     addLike: PropTypes.func.isRequired,

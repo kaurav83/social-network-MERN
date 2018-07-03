@@ -5,7 +5,8 @@ import {
     GET_ERRORS,
     GET_POSTS,
     POST_LOADING,
-    DELETE_POST
+    DELETE_POST,
+    GET_POST
 } from './types';
 
 // Добавить пост
@@ -25,7 +26,7 @@ export const addPost = postData => dispatch => {
         );
 };
 
-// Получить пост
+// Получить посты
 export const getPosts = postData => dispatch => {
     dispatch(setPostLoading());
     axios.get('/api/posts')
@@ -86,6 +87,24 @@ export const removeLike = id => dispatch => {
             dispatch({
                 type: GET_ERRORS,
                 payload: err.response.data
+            })
+        );
+};
+
+// получить единственный пост
+export const getPost = id => dispatch => {
+    dispatch(setPostLoading());
+    axios.get(`/api/posts/${id}`)
+        .then(res => 
+            dispatch({
+                type: GET_POST,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_POST,
+                payload: null
             })
         );
 };
