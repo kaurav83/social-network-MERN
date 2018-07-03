@@ -56,7 +56,7 @@ class PostItem extends Component {
 
     render() {
         const { post, auth, showActions } = this.props;
-        console.log(post, 'PSTO')
+
         return (
             <div className="post-item">
                 <div className="post-item__container">
