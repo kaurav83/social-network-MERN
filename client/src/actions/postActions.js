@@ -6,11 +6,13 @@ import {
     GET_POSTS,
     POST_LOADING,
     DELETE_POST,
-    GET_POST
+    GET_POST,
+    CLEAR_ERRORS
 } from './types';
 
 // Добавить пост
 export const addPost = postData => dispatch => {
+    dispatch(clearErrors());
     axios.post('/api/posts', postData)
         .then(res => 
             dispatch({
@@ -111,6 +113,7 @@ export const getPost = id => dispatch => {
 
 // Добавить комментарий
 export const addComment = (postId, commentData) => dispatch => {
+    dispatch(clearErrors());
     axios.post(`/api/posts/comment/${postId}`, commentData)
         .then(res => 
             dispatch({
@@ -125,3 +128,27 @@ export const addComment = (postId, commentData) => dispatch => {
             })
         );
 };
+
+// Удаление комментария
+export const deleteComment = (postId, commentId) => dispatch => {
+    axios.delete(`/api/posts/comment/${postId}/${commentId}`)
+        .then(res => 
+            dispatch({
+                type: GET_POST,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+// очистка от ошибок
+export const clearErrors = () => {
+    return {
+        type: CLEAR_ERRORS
+    }
+}

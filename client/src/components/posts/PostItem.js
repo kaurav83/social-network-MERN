@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import PostAvatar from '../common/PostAvatar';
-import {deletePost, addLike, removeLike} from '../../actions/postActions';
+import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,7 +12,6 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import Delete from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import spacing from '@material-ui/core/styles/spacing';
 
 const theme = createMuiTheme({
     palette: {
@@ -46,7 +45,7 @@ class PostItem extends Component {
     }
 
     findUserClicked(likes) {
-        const {auth} = this.props;
+        const { auth } = this.props;
         if (likes.filter(like => like.user === auth.user.id).length > 0) {
             return true;
         } else {
@@ -72,53 +71,53 @@ class PostItem extends Component {
                                 showActions ? (
                                     <span>
                                         <MuiThemeProvider theme={theme}>
-                                <IconButton
-                                    color="secondary"
-                                    // title="Удалить"
-                                    onClick={this.onLike.bind(this, post._id)}
-                                >
-                                    <ThumbUp className={classnames("thumb-up icon", {
-                                        'text-info-btn': this.findUserClicked(post.likes)
-                                    })} />
-                                    <span className="counter-likes">{post.likes.length}</span>
-                                </IconButton>
-                            </MuiThemeProvider>
-                            <MuiThemeProvider theme={theme}>
-                                <IconButton
-                                    color="secondary"
-                                    // title="Удалить"
-                                    onClick={this.onUnlike.bind(this, post._id)}
-                                >
-                                    <ThumbDown className="thumb-down icon" />
-                                </IconButton>
-                            </MuiThemeProvider>
+                                            <IconButton
+                                                color="secondary"
+                                                // title="Удалить"
+                                                onClick={this.onLike.bind(this, post._id)}
+                                            >
+                                                <ThumbUp className={classnames("thumb-up icon", {
+                                                    'text-info-btn': this.findUserClicked(post.likes)
+                                                })} />
+                                                <span className="counter-likes">{post.likes.length}</span>
+                                            </IconButton>
+                                        </MuiThemeProvider>
+                                        <MuiThemeProvider theme={theme}>
+                                            <IconButton
+                                                color="secondary"
+                                                // title="Удалить"
+                                                onClick={this.onUnlike.bind(this, post._id)}
+                                            >
+                                                <ThumbDown className="thumb-down icon" />
+                                            </IconButton>
+                                        </MuiThemeProvider>
 
-                            <MuiThemeProvider theme={theme}>
-                                <Button
-                                        color="secondary"
-                                        variant="contained"
-                                        // title="Удалить"
-                                >
-                                    <Link to={`/post/${post._id}`} className="link-to-id">
-                                        Комментарии
+                                        <MuiThemeProvider theme={theme}>
+                                            <Button
+                                                color="secondary"
+                                                variant="contained"
+                                            // title="Удалить"
+                                            >
+                                                <Link to={`/post/${post._id}`} className="link-to-id">
+                                                    Комментарии
                                     </Link>
-                                </Button>
-                            </MuiThemeProvider>
-                            {post.user === auth.user.id ? (
-                                <MuiThemeProvider theme={theme}>
-                                    <IconButton
-                                        color="primary"
-                                        // variant="contained"
-                                        // title="Удалить"
-                                        onClick={this.onDeleteClick.bind(this, post._id)}
-                                    >
-                                        <Delete className="delete-icon icon" />
-                                    </IconButton>
-                                </MuiThemeProvider>
-                            ) : null}
+                                            </Button>
+                                        </MuiThemeProvider>
+                                        {post.user === auth.user.id ? (
+                                            <MuiThemeProvider theme={theme}>
+                                                <IconButton
+                                                    color="primary"
+                                                    // variant="contained"
+                                                    // title="Удалить"
+                                                    onClick={this.onDeleteClick.bind(this, post._id)}
+                                                >
+                                                    <Delete className="delete-icon icon" />
+                                                </IconButton>
+                                            </MuiThemeProvider>
+                                        ) : null}
                                     </span>
                                 ) : null
-                            
+
                             }
                         </div>
                     </div>
@@ -146,4 +145,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {deletePost, addLike, removeLike})(PostItem);
+export default connect(mapStateToProps, { deletePost, addLike, removeLike })(PostItem);
