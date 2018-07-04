@@ -39,10 +39,10 @@ class ProfileItem extends Component {
                     </div>
                     <div className="profile-data">
                         <h3 className="profile-data__name">{profile.user.name}</h3>
-                        <p>
+                        <p className="profile-data__company">
                             {profile.status} {isEmpty(profile.company) ? null : <span>at {profile.company}</span>}
                         </p>
-                        <p>
+                        <p className="profile-data__location">
                             {isEmpty(profile.location) ? null : (<span>{profile.location}</span>)}
                         </p>
                     </div>

@@ -13,6 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     overflow-x: hidden;
+    overflow-y: overlay;
 }
 
 ul,

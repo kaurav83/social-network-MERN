@@ -142,8 +142,13 @@
     font-size: .9rem;
 }
 
-.headerGitgub-repos__item {
+.headerGitgub-repos {
+    border-bottom: .0625rem solid black;
+    padding: 1rem .5rem .3rem .5rem;
     margin: 1rem 0;
+}
+
+.headerGitgub-repos__item {
     display: flex;
     justify-content: space-between;
 }

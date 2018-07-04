@@ -22,9 +22,9 @@ const theme = createMuiTheme({
             contrastText: '#000',
         },
         secondary: {
-            light: '#CCFF90',
-            main: '#76FF03',
-            dark: '#64DD17',
+            light: '#FFF59D',
+            main: '#FFEB3B',
+            dark: '#F9A825',
             contrastText: '#000',
         }
     },
@@ -64,12 +64,14 @@ class PostItem extends Component {
                             <PostAvatar post={post} />
                             <p className="post-item__text">{post.name}</p>
                         </div>
-                        <div className="post-item__inner-content">
-                            <p className="post-item__lead-text">{post.text}</p>
+                        <p className="post-item__lead-text">{post.text}</p>
+                    </div>
+                    <div className="post-item__inner-content">
 
-                            {
-                                showActions ? (
-                                    <span>
+                        {
+                            showActions ? (
+                                <span className="post-item__buttons">
+                                    <div className="post-item__likes-count">
                                         <MuiThemeProvider theme={theme}>
                                             <IconButton
                                                 color="secondary"
@@ -79,9 +81,9 @@ class PostItem extends Component {
                                                 <ThumbUp className={classnames("thumb-up icon", {
                                                     'text-info-btn': this.findUserClicked(post.likes)
                                                 })} />
-                                                <span className="counter-likes">{post.likes.length}</span>
                                             </IconButton>
                                         </MuiThemeProvider>
+                                        <span className="counter-likes">{post.likes.length}</span>
                                         <MuiThemeProvider theme={theme}>
                                             <IconButton
                                                 color="secondary"
@@ -91,16 +93,22 @@ class PostItem extends Component {
                                                 <ThumbDown className="thumb-down icon" />
                                             </IconButton>
                                         </MuiThemeProvider>
+                                    </div>
 
+                                    <div className="post-item__right">
                                         <MuiThemeProvider theme={theme}>
                                             <Button
                                                 color="secondary"
                                                 variant="contained"
-                                            // title="Удалить"
+                                                style={{ textTransform: 'capitalize', color: "#fff", padding: "0", minHeight: "0" }}
                                             >
-                                                <Link to={`/post/${post._id}`} className="link-to-id">
+                                                <Link 
+                                                    to={`/post/${post._id}`} 
+                                                    className="link-to-id"
+                                                    style={{ display: "inline-block", padding: "8px 16px" }}
+                                                >
                                                     Комментарии
-                                    </Link>
+                                                </Link>
                                             </Button>
                                         </MuiThemeProvider>
                                         {post.user === auth.user.id ? (
@@ -115,11 +123,11 @@ class PostItem extends Component {
                                                 </IconButton>
                                             </MuiThemeProvider>
                                         ) : null}
-                                    </span>
-                                ) : null
+                                    </div>
+                                </span>
+                            ) : null
 
-                            }
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -72,7 +72,8 @@
     -o-transition: color .2s ease-out;
 }
 
-.navbar-list__item.sign-up {
+.navbar-list__item.sign-up,
+.navbar-list__item.notes {
     margin-right: 1.5rem;
 }
 

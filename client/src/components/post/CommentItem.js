@@ -49,19 +49,21 @@ class CommentItem extends Component {
                             <p className="comment__field-text">
                                 {comment.text}
                             </p>
-                            {comment.user === auth.user.id ? (
-                                <MuiThemeProvider theme={theme}>
-                                    <IconButton
-                                        color="primary"
-                                        // variant="contained"
-                                        // title="Удалить"
-                                        onClick={this.onDeleteClick.bind(this, postId, comment._id)}
-                                    >
-                                        <Delete className="delete-icon icon" />
-                                    </IconButton>
-                                </MuiThemeProvider>
-                            ) : null}
                         </div>
+                    </div>
+                    <div className="button-right">
+                        {comment.user === auth.user.id ? (
+                            <MuiThemeProvider theme={theme}>
+                                <IconButton
+                                    color="primary"
+                                    // variant="contained"
+                                    // title="Удалить"
+                                    onClick={this.onDeleteClick.bind(this, postId, comment._id)}
+                                >
+                                    <Delete className="delete-icon icon" />
+                                </IconButton>
+                            </MuiThemeProvider>
+                        ) : null}
                     </div>
                 </div>
             </div>

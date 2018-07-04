@@ -48,8 +48,19 @@
 }
 
 .profile-data__name {
-    margin: .5rem 0;
+    margin: .5rem 0 1rem 0;
     font-size: 1.4rem;
+}
+
+.profile-data__location {
+    margin-top: .5rem;
+}
+
+.list-group-item {
+    background: #efefef;
+    padding: .5rem;
+    min-width: 10rem;
+    border: .0625rem solid #ccc;
 }
 
 .list-group-item span {

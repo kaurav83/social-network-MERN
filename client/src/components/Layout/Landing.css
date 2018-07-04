@@ -22,8 +22,10 @@
 .landing-title {
     color: #fff;
     margin: 1rem 0;
+    font-weight:400;
 }
 
 .landing-description {
     color: #fff;
+    margin: 2rem 0;
 }

@@ -40,7 +40,7 @@ class Header extends Component {
     const { isAuthenticated, user } = this.props.auth;
     const authLinks = (
       <ul className="navbar-list authLinks">
-        <li className="navbar-list__item">
+        <li className="navbar-list__item notes">
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"

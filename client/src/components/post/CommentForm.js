@@ -58,7 +58,7 @@ class CommentForm extends Component {
             <div className="post-form">
                 <div className="post-form-container">
                     <div className="post-form-content">
-                        <h2 className="post-form-title">Написать комментарий...</h2>
+                        <h2 className="post-form-title comment-item">Написать комментарий...</h2>
                         <div className="post-form-wrap">
                             <form onSubmit={this.onSubmit}>
                                 <TextAreaFieldGroup 

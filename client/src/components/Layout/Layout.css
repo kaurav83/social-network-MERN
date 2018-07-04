@@ -94,12 +94,12 @@
 }
 
 .post-item {
-    flex: 1 1 auto;
+    /* flex: 1 1 auto;
     order: 2;
     width: 100%;
     margin: 0 auto;
-    position: relative;
-    background: #f5f5f5;
+    position: relative; */
+    background: #fff;
 }
 
 .post {
@@ -123,4 +123,8 @@
     flex: 0 0 auto;
     order: 4;
     text-align: center;
+    padding: 3rem 0;
+    background: #37474F;
+    color: #fff;
+    /* padding-top: 3rem; */
 }

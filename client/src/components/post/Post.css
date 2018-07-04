@@ -1,3 +1,62 @@
-.post {
+.post__container {
+    max-width: 75rem;
     /* background: red; */
+    margin: 4rem auto;
+    padding: 1rem;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.post-form-wrap {
+    border: .0625rem solid #ccc;
+    padding: 1rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.post-form-wrap .input-group {
+    margin: 0;
+}
+
+.post-form-title.comment-item {
+    margin-top: 2rem;
+}
+
+.comment {
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.comment__person {
+    display: flex;
+}
+
+.comment__person-avatar {
+    max-width: 8rem;
+    max-height: 8rem;
+}
+
+.comment__person-name {
+    margin-left: .5rem;
+    margin-top: .5rem;
+    font-size: 1.4rem;
+}
+
+.comment-content {
+    display: flex;
+}
+
+.comment__field-text {
+    margin-top: 1.5rem;
+    margin-left: 3rem;
+    width: 100%;
+}
+
+.button-right {
+    display: flex;
+    margin-top: .5rem;
+}
+
+.button-right button {
+    margin-left: auto;
 }
