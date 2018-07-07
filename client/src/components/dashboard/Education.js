@@ -65,6 +65,7 @@ class Education extends Component {
                                 color="primary"
                                 title="Удалить"
                                 onClick={this.onDeleteClick.bind(this, item._id)}
+                                className="delete-iconButton"
                             >
                                 <Delete className="delete-icon icon" />
                             </IconButton>

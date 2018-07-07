@@ -70,3 +70,89 @@
 .list-group-item i {
     font-size: .9rem;
 }
+
+@media screen and (min-width: 320px) {
+    .profiles-container {
+        margin: 0 auto;
+        padding: .5rem 1rem 1rem 1rem;
+    }
+
+    .profile-card {
+        padding: 1rem;
+        flex-direction: column;
+    }
+
+    .share-block {
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: .5rem;
+    }
+
+    .skills-set {
+        margin-right: 0;
+    }
+
+    .skills-set__title {
+        text-align: center;
+    }
+
+    .image-avatar {
+        margin: 0 auto;
+    }
+
+    .profile-data {
+        margin: .5rem auto;
+    }
+
+    .profile-data__name {
+        text-align: center;
+    }
+
+    .profile-data__location {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .profiles-container {
+        margin: 4rem auto;
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .profile-card {
+        padding: 2rem;
+        flex-direction: row;
+    }
+
+    .share-block {
+        flex-direction: row;
+        margin-left: auto;
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    .skills-set {
+        margin-right: 1.5rem;
+    }
+
+    .skills-set__title {
+        text-align: left;
+    }
+    
+    .image-avatar {
+        margin: 0;
+    }
+
+    .profile-data {
+        margin-left: 1.5rem;
+    }
+
+    .profile-data__name {
+        text-align: left;
+    }
+
+    .profile-data__location {
+        text-align: left;
+    }
+}

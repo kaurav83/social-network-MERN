@@ -64,10 +64,6 @@ button.links-group__button:hover {
     -o-transition: color .2s ease-in;
 }
 
-.icon.delete-icon {
-    font-size: 2.5rem;
-}
-
 .table-block {
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
     padding: 1.5rem 1rem;
@@ -80,7 +76,6 @@ button.links-group__button:hover {
 }
 
 .table-dashboard {
-    border: .0625rem solid black;
     min-width: 100%;
     margin-top: 1rem;
 }
@@ -154,4 +149,60 @@ button.links-group__button:hover {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 320px) {
+    .table-dashboard {
+        font-size: .8rem;
+    }
+
+    button.delete-iconButton {
+        width: 1.5rem;
+    }
+
+    .delete-icon {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-container {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 1rem .5rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.6rem;
+    }
+
+    .table-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .table-dashboard {
+        font-size: 1rem;
+    }
+
+    td .delete-iconButton {
+        width: 3rem;
+    }
+
+    .icon.delete-icon {
+        font-size: 2.5rem;
+    }
+
+    .dashboard-container {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .table-title {
+        font-size: 1.4rem;
+    }
 }

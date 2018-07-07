@@ -67,6 +67,7 @@ class Experience extends Component {
                                 color="primary"
                                 onClick={this.onDeleteClick.bind(this, item._id)}
                                 title="Удалить"
+                                className="delete-iconButton"
                             >
                                 <Delete className="delete-icon icon" />
                             </IconButton>

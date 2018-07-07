@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import Delete from '@material-ui/icons/Delete';
+import Comment from '@material-ui/icons/Comment';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
@@ -100,14 +101,18 @@ class PostItem extends Component {
                                             <Button
                                                 color="secondary"
                                                 variant="contained"
+                                                className="comment-button"
                                                 style={{ textTransform: 'capitalize', color: "#fff", padding: "0", minHeight: "0" }}
                                             >
                                                 <Link 
                                                     to={`/post/${post._id}`} 
                                                     className="link-to-id"
-                                                    style={{ display: "inline-block", padding: "8px 16px" }}
+                                                    style={{ display: "inline-block"}}
                                                 >
-                                                    Комментарии
+                                                    <span className="comment-text">Комментарии</span>
+                                                    <span className="comment-icon">
+                                                        <Comment />
+                                                    </span>
                                                 </Link>
                                             </Button>
                                         </MuiThemeProvider>

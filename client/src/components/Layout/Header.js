@@ -8,6 +8,12 @@ import { clearCurrentProfile } from '../../actions/profileActions';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
+import DeveloperBoard from '@material-ui/icons/DeveloperBoard';
+import NoteAdd from '@material-ui/icons/NoteAdd';
+import Launch from '@material-ui/icons/Launch';
+import Person from '@material-ui/icons/Person';
+import Group from '@material-ui/icons/Group';
+import PersonAdd from '@material-ui/icons/PersonAdd';
 import './Header.css';
 import logo from '../../img/SocialNetwordForDevelopers.png'
 
@@ -41,6 +47,11 @@ class Header extends Component {
     const authLinks = (
       <ul className="navbar-list authLinks">
         <li className="navbar-list__item notes">
+          <span className="mobile-variant">
+            <Link to="/feed" style={{ display: "block" }}>
+              <NoteAdd style={{ fontSize: "40", color: "#fff" }} />
+            </Link>
+          </span>
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"
@@ -50,11 +61,11 @@ class Header extends Component {
               <NavLink to="/feed"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                // activeClassName="selected-item"
-                // activeStyle={{
-                //     color: "yellow",
-                //     textDecoration: "underline"
-                // }}
+              // activeClassName="selected-item"
+              // activeStyle={{
+              //     color: "yellow",
+              //     textDecoration: "underline"
+              // }}
               >
                 Записи
               </NavLink>
@@ -62,6 +73,11 @@ class Header extends Component {
           </MuiThemeProvider>
         </li>
         <li className="navbar-list__item  sign-up">
+          <span className="mobile-variant">
+            <Link to="/dashboard" style={{ display: "block" }}>
+              <DeveloperBoard style={{ fontSize: "40", color: "#fff" }} />
+            </Link>
+          </span>
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"
@@ -71,11 +87,11 @@ class Header extends Component {
               <NavLink to="/dashboard"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                // activeClassName="selected-item"
-                // activeStyle={{
-                //     color: "yellow",
-                //     textDecoration: "underline"
-                // }}
+              // activeClassName="selected-item"
+              // activeStyle={{
+              //     color: "yellow",
+              //     textDecoration: "underline"
+              // }}
               >
                 Панель управления
               </NavLink>
@@ -83,6 +99,15 @@ class Header extends Component {
           </MuiThemeProvider>
         </li>
         <li className="navbar-list__item sign-in">
+          <span className="mobile-variant">
+            <a href=""
+              className="navbar-list__button"
+              // activeClassName="selected"
+              onClick={this.onLogoutClick.bind(this)}
+            >
+              <Launch style={{ fontSize: "40", color: "#fff" }} />
+            </a>
+          </span>
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"
@@ -95,13 +120,13 @@ class Header extends Component {
                 // activeClassName="selected"
                 onClick={this.onLogoutClick.bind(this)}
               >
-                <Avatar 
-                  src={user.avatar} 
-                  alt={user.name} 
-                  title="У вас должен быть подключен Gravatar к вашему email для отображения изображения" 
-                  style={{width: "2rem", height: "2rem", marginRight: ".3125rem"}}
-                  />{' '}
-                    Выйти
+                <Avatar
+                  src={user.avatar}
+                  alt={user.name}
+                  title="У вас должен быть подключен Gravatar к вашему email для отображения изображения"
+                  style={{ width: "2rem", height: "2rem", marginRight: ".3125rem" }}
+                />{' '}
+                Выйти
                 </a>
             </Button>
           </MuiThemeProvider>
@@ -112,6 +137,11 @@ class Header extends Component {
     const guestLinks = (
       <ul className="navbar-list">
         <li className="navbar-list__item  sign-up">
+          <span className="mobile-variant">
+            <Link to="/register" style={{ display: "block" }}>
+              <PersonAdd style={{ fontSize: "40", color: "#fff" }} />
+            </Link>
+          </span>
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"
@@ -121,11 +151,11 @@ class Header extends Component {
               <NavLink to="/register"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                // activeClassName="selected-item"
-                // activeStyle={{
-                //   color: "yellow",
-                //   textDecoration: "underline"
-                // }}
+              // activeClassName="selected-item"
+              // activeStyle={{
+              //   color: "yellow",
+              //   textDecoration: "underline"
+              // }}
               >
                 Зарегистрироваться
               </NavLink>
@@ -133,6 +163,11 @@ class Header extends Component {
           </MuiThemeProvider>
         </li>
         <li className="navbar-list__item sign-in">
+          <span className="mobile-variant">
+            <Link to="/login" style={{ display: "block" }}>
+              <Person style={{ fontSize: "40", color: "#fff" }} />
+            </Link>
+          </span>
           <MuiThemeProvider theme={theme}>
             <Button
               className="navbar-list__button"
@@ -142,11 +177,11 @@ class Header extends Component {
               <NavLink to="/login"
                 style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                 className="navbar-list__link"
-                // activeClassName="selected-item"
-                // activeStyle={{
-                //   color: "yellow",
-                //   textDecoration: "underline"
-                // }}
+              // activeClassName="selected-item"
+              // activeStyle={{
+              //   color: "yellow",
+              //   textDecoration: "underline"
+              // }}
               >
                 Авторизоваться
                   </NavLink>
@@ -168,21 +203,26 @@ class Header extends Component {
           </div>
           <ul className="navbar-list">
             <li className="navbar-list__item">
+              <span className="mobile-variant">
+                <Link to="/profiles" style={{ display: "block" }}>
+                  <Group style={{ fontSize: "40", color: "#fff" }} />
+                </Link>
+              </span>
               <MuiThemeProvider theme={theme}>
                 <Button
                   color="secondary"
                   className="navbar-list__button"
                   variant="text"
-                  
+
                 >
                   <NavLink to="/profiles"
                     style={{ textTransform: "capitalize", fontSize: "1.2rem" }}
                     className="navbar-list__link"
-                    // activeClassName="selected-item"
-                    // activeStyle={{
-                    //   color: "yellow",
-                    //   textDecoration: "underline"
-                    // }}
+                  // activeClassName="selected-item"
+                  // activeStyle={{
+                  //   color: "yellow",
+                  //   textDecoration: "underline"
+                  // }}
                   >
                     Сеть
                   </NavLink>

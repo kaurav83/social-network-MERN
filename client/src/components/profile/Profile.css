@@ -128,6 +128,7 @@
 .headerAbout-skill__list {
     display: flex;
     margin: 1rem 0;
+    flex-wrap: wrap;
 }
 
 .headerAbout-skill__item {
@@ -189,4 +190,167 @@
 .headerGitgub-repos__cred.purple {
     background: #C51162;
     color: #fff;
+}
+
+@media screen and (min-width: 320px) {
+    .profile-container2 {
+        padding: 1rem;
+    }
+
+    .profile-container {
+        margin-bottom: 1rem;
+    }
+
+    .profile-container2:before {
+        display: none;
+    }
+
+    .profile-image-block {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .headerProfile-data {
+        flex-direction: column;
+    }
+
+    .headerProfile-data__left {
+        text-align: center;
+    }
+
+    .headerProfile-data__right {
+        align-self: center;
+        margin-top: 1rem;
+    }
+
+    .headerProfile-data__right-text {
+        text-align: center;
+    }
+
+    .headerProfile-data__socials {
+        text-align: center;
+    }
+
+    .headerAbout-skill__list {
+        margin: .5rem 0;
+    }
+
+    .headerAbout-text-lead {
+        padding: 0;
+    }
+
+    .headerCreds-text-center {
+        font-size: 1.2rem;
+    }
+
+    .headerCreds-subtitle {
+        font-size: 1rem;
+    }
+
+    .headerAbout-text-center {
+        font-size: 1.2rem;
+    }
+
+    .headerGitgub-text-center {
+        font-size: 1.2rem;
+    }
+
+    .list-item {
+        font-size: .8rem;
+    }
+
+    .headerGitgub-repos {
+        margin: 0;
+    }
+
+    .headerGitgub-repos__name {
+        font-size: 1rem;
+    }
+
+    .headerGitgub-repos__cred {
+        font-size: .8rem;
+        padding: .1rem .2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .profile-container2 {
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .profile-container2:before {
+        display: block;
+    }
+
+    .profile-container {
+        margin-bottom: 4rem;
+    }
+
+    .profile-image-block {
+        margin-top: 7rem;
+        display: block;
+    }
+
+    .headerProfile-data {
+        flex-direction: row;
+    }
+
+    div.headerProfile-data__left {
+        text-align: left;
+    }
+
+    .headerProfile-data__right {
+        align-self: baseline;
+        margin-top: 0;
+    }
+
+    .headerProfile-data__right-text {
+        text-align: left;
+    }
+
+    .headerProfile-data__socials {
+        text-align: left;
+    }
+
+    .headerAbout-skill__list {
+        margin: 1rem 0;
+    }
+
+    .headerAbout-text-lead {
+        padding: 1.5rem 0 1rem 0;
+    }
+
+    .headerCreds-text-center {
+        font-size: 1.5rem;
+    }
+
+    .headerCreds-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .headerAbout-text-center {
+        font-size: 1.5rem;
+    }
+
+    .headerGitgub-text-center {
+        font-size: 1.5rem;
+    }
+
+    .list-item {
+        font-size: 1rem;
+    }
+
+    .headerGitgub-repos {
+        margin: 1rem 0;
+    }
+
+    .headerGitgub-repos__name {
+        font-size: 1.3rem;
+    }
+
+    .headerGitgub-repos__cred {
+        font-size: 1rem;
+        padding: .2rem .5rem;
+    }
 }

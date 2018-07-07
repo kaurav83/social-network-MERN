@@ -48,7 +48,7 @@ class Landing extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                style={{ margin: "1rem .5rem" }}
+                                className="landing-button"
                             >
                                 <Link to="/register">
                                     Зарегистрироваться
@@ -59,7 +59,7 @@ class Landing extends Component {
                             <Button
                                 variant="contained"
                                 color="secondary"
-                                style={{ margin: "1rem .5rem" }}
+                                className="landing-button"
                             >
                                 <Link to="/login">
                                     Авторизоваться
